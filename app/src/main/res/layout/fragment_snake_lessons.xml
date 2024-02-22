@@ -4,11 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".DogsLessonsFragment"
+    tools:context=".SnakeLessonsFragment"
     android:background="@color/sky_blue">
 
+
     <TextView
-        android:id="@+id/dogs_start_textview"
+        android:id="@+id/snakes_start_textview"
         android:layout_width="246dp"
         android:layout_height="83dp"
         android:layout_alignParentStart="true"
@@ -25,18 +26,17 @@
         android:shadowDx="3"
         android:shadowDy="3"
         android:shadowRadius="2"
-        android:text="Dogs"
+        android:text="Snakes"
         android:textColor="@color/blue"
         android:textSize="60dp" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottie_dog"
+        android:id="@+id/lottie_snake"
         android:layout_width="200dp"
         android:layout_height="300dp"
         android:layout_centerInParent="true"
         android:elevation="5dp"
         app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/paw_animation" />
-
+        app:lottie_rawRes="@raw/snake_animation" />
 
 </RelativeLayout>

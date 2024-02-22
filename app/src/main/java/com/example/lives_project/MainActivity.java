@@ -14,6 +14,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.OnMapReadyCallback;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private GoogleMap myMap;
     Location currentLocation;
     FusedLocationProviderClient fusedLocationProviderClient;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             LatLng sydney = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
             MarkerOptions options = new MarkerOptions().position(sydney).title("My Location");
             options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
-            myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15));
+            myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 13));
             myMap.addMarker(options);
             myMap.getUiSettings().setZoomControlsEnabled(true);
             myMap.getUiSettings().setCompassEnabled(true);
@@ -113,6 +113,5 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onLessonsClick (View v ){
         Intent intent = new Intent(MainActivity.this, LessonsActivity.class);
         startActivity(intent);
-        }
-
+    }
     }

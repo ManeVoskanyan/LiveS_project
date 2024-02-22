@@ -22,7 +22,21 @@ public class AnimalMenuFragment extends Fragment {
         dogs_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onImageClick();
+                onDogImageClick();
+            }
+        });
+        ImageView snake_image  = view.findViewById(R.id.snake_image_bg);
+        snake_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+             onSnakeImageClick();
+            }
+        });
+        ImageView bear_image  = view.findViewById(R.id.bear_image_bg);
+        bear_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBearImageClick();
             }
         });
 
@@ -31,10 +45,27 @@ public class AnimalMenuFragment extends Fragment {
 
 
 
-    public  void onImageClick(){
+    public  void onDogImageClick(){
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.lessons_fragment2_container, new DogsLessonsFragment());
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
+    }
+
+    public void onSnakeImageClick(){
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.lessons_fragment2_container, new SnakeLessonsFragment());
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
+    }
+    public void onBearImageClick(){
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.lessons_fragment2_container, new BearsLessonsFragment());
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
