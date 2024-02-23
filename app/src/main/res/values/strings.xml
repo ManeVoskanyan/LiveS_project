@@ -5,6 +5,11 @@
     <string name="tasks">tasks</string>
     <string name="about">About</string>
     <string name="lives">LiveS</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_lesson_start1">
+Hello! Today, we will learn how to act correctly if a dog attacks you. Many people love animals</string>
+    <string name="first_lesson_start2">
+This app will help you practice these skills, providing a safe interaction with our four-legged friends!</string>
+    <string name="hello_blank_fragment"> blank_fragment</string>
     <string name="my_map_api_key">AIzaSyAC9LWs-NNKZAM6BPECrbM-78s5YK0_zb0</string>
+
 </resources>

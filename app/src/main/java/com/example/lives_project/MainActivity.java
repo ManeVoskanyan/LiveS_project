@@ -114,4 +114,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         Intent intent = new Intent(MainActivity.this, LessonsActivity.class);
         startActivity(intent);
     }
+
+    public void onCompassClick (View v ){
+        Intent intent = new Intent(MainActivity.this, CompassActivity.class);
+        startActivity(intent);
+    }
     }

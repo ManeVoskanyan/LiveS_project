@@ -23,6 +23,5 @@ public class LessonsActivity extends AppCompatActivity {
         FragmentTransaction transaction2 = fragmentManager2.beginTransaction();
         transaction2.add(R.id.lessons_fragment2_container, lessonsMenuFragment);
         transaction2.commit();
-
     }
 }
