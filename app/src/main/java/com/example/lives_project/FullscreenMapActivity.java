@@ -43,7 +43,6 @@ public class FullscreenMapActivity extends AppCompatActivity implements OnMapRea
             mapSearchView.addTextChangedListener(new TextWatcher() {
                                                      @Override
                                                      public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
                                                      }
 
                                                      @Override
@@ -66,52 +65,21 @@ public class FullscreenMapActivity extends AppCompatActivity implements OnMapRea
                                                              MarkerOptions options = new MarkerOptions().position(latLng).title(location);
                                                              options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
                                                              myMap.addMarker(options);
-                                                             myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
+                                                             myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 9));
                                                          } catch (Exception e) {
                                                              e.printStackTrace();
                                                          }
                                                      }
-                                                 }
-                    //{
-//                            @Override
-//                            public boolean onQueryTextSubmit(String query) {
-//                                String location = mapSearchView.getQuery().toString();
-//                                List<Address> addressList = null;
-//                                if (location != null) {
-//                                    Geocoder geocoder = new Geocoder(FullscreenMapActivity.this);
-//                                    try {
-//                                        addressList = geocoder.getFromLocationName(location, 1);
-//                                    } catch (IOException e) {
-//                                        e.printStackTrace();
-//                                    }
-//                                    Address address = addressList.get(0);
-//                                    LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-//                                    MarkerOptions options = new MarkerOptions().position(latLng).title(location);
-//                                    options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
-//                                    myMap.addMarker(options);
-//                                    myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
-//                                }
-//                                return false;
-//                            }
-//
-//                            @Override
-//                            public boolean onQueryTextChange(String newText) {
-//                                return false;
-//                            }
-//                        }
-            );
+                                                 });
+
             mapFragment.getMapAsync(FullscreenMapActivity.this);
-        } catch (Exception e) {
+           } catch (Exception e) {
             e.printStackTrace();
-
         }
-
     }
-
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         myMap = googleMap;
-
     }
 
 }
