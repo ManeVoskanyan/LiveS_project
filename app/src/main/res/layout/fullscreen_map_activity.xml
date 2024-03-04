@@ -11,13 +11,15 @@
         android:layout_height="match_parent"
      />
 
-    <androidx.appcompat.widget.SearchView
+    <EditText
         android:id="@+id/mapSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:imeOptions="actionSearch"
+        android:textSize="16sp"
         android:queryHint="Search location"
         app:layout_constraintBottom_toTopOf="@+id/map_google"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,54 +7,12 @@
     android:background="@color/sky_blue"
     tools:context=".DogsLessonsStartFragment">
 
-    <TextView
-        android:id="@+id/dogs_start_lesson1"
-        android:layout_width="wrap_content"
-        android:layout_height="101dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="599dp"
-        android:fontFamily="@font/changa_one"
-        android:shadowColor="@color/black"
-        android:text="@string/first_lesson_start1"
-        android:textColor="@color/blue"
-        android:textSize="25dp" />
-
-    <TextView
-        android:id="@+id/dogs_start_lesson2"
-        android:layout_width="354dp"
-        android:layout_height="139dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="497dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="95dp"
-        android:fontFamily="@font/changa_one"
-        android:shadowColor="@color/black"
-        android:text="@string/first_lesson_start2"
-        android:textColor="@color/blue"
-        android:textSize="25dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:background="@color/sky_blue">
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="358dp"
-        android:layout_height="300dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="292dp"
-        android:src="@drawable/man_dog_image" />
+    </RelativeLayout>
 
-
-</RelativeLayout>
+</ScrollView>
