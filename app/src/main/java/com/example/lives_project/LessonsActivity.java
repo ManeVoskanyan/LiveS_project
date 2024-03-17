@@ -23,5 +23,12 @@ public class LessonsActivity extends AppCompatActivity {
         FragmentTransaction transaction2 = fragmentManager2.beginTransaction();
         transaction2.add(R.id.lessons_fragment2_container, lessonsMenuFragment);
         transaction2.commit();
+
+//        FragmentManager fragmentManager3 = getSupportFragmentManager();
+//        PagesButtonFragment pagesButtonFragment = new PagesButtonFragment();
+//        FragmentTransaction transaction3 = fragmentManager3.beginTransaction();
+//        transaction3.add(R.id.lessons_fragment3_container, pagesButtonFragment);
+//        transaction3.commit();
+
     }
 }

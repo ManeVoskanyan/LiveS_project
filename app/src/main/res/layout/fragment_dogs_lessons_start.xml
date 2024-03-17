@@ -58,6 +58,14 @@
             android:text="What to do in case of a dog attack? Picture this scenario: you're enjoying a morning run in the park when suddenly you’re approached by a stray dog showing clear signs of aggression. What should you do in such situation? Is it advisable to attempt escape or is engaging in a physical altercation a better option? Or perhaps simply offering the dog a treat would be sufficient?
 Here you'll find expert advice on effectively handling a dog attack and taking appropriate actions if it occurs. Who's at risk? Runners, cyclists, and other fast-moving individuals are most vulnerable. Dogs react to motion, triggering their instinct to chase. Additionally, dogs often perceive certain areas as their territory." />
 
+        <Button
+            android:id="@+id/page_turner1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="300dp"/>
+
         <TextView
             android:id="@+id/dogs_start_lesson5"
             android:layout_width="match_parent"
