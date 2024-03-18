@@ -21,43 +21,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30dp"
-            android:text="kkkkkkkkkkkkkkkkkkkk
-            kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-            kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-            kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-            kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-            kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-            lllllllllllllllllllllllllllllllllll
-            uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
-            uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
-            uuuuuuuuuuuuuuuuuuuuulllllllllllllllllllllll
-            llllllllllllllllllllllllllllllllllllllllllllllllllll
-            llllllllllllllllllllllllllllllllllllllllllll
-            llllllllllllllllkkkkkkkkkkkkkkkkkkkkkkkkkk
-            kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"/>
-
-        <Button
-            android:id="@+id/page_turner1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/blue"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="300dp"/>
-
-        <ImageView
-            android:id="@+id/right_image"
-            android:layout_width="40dp"
-            android:layout_height="50dp"
-            android:src="@drawable/right"
-            android:layout_marginStart="317dp"
-            android:layout_marginTop="-50dp"/>
-
+            android:text="tttttttt
+            tttttttttttttttttttttttttttt
+            ttttttttttttttttttttttttttt
+            ttttttttttttttttttttttttttt
+            ttttttttttttttttttttttttttttt
+            tttttttttttttttttttttjjjjjjjjj
+            jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
+            jjjjjjjjjjjjjjsssssssssssssssssss
+            ssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssss
+            ssssssssshhhhhhhhhhhhhhhhhhhhhhhhhhhh
+            hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+            hhhhhhhhh"/>
 
         <Button
             android:id="@+id/page_turner2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-50dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="300dp"
             android:backgroundTint="@color/blue" />
 
@@ -76,6 +58,16 @@
             android:focusableInTouchMode="true"
             android:text=""
             android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/end_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="300dp"
+            android:layout_marginTop="-70dp"
+            android:backgroundTint="@color/blue" />
+
+
     </LinearLayout>
 
 </ScrollView>

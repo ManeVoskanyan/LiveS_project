@@ -36,6 +36,15 @@ jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjgggggggg"/>
             android:layout_marginTop="15dp"
             android:layout_marginStart="300dp"/>
 
+        <ImageView
+            android:id="@+id/right_image"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:src="@drawable/right"
+            android:layout_marginStart="317dp"
+            android:layout_marginTop="-50dp"/>
+
+
         <Button
             android:id="@+id/page_turner2"
             android:layout_width="wrap_content"
@@ -43,6 +52,15 @@ jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjgggggggg"/>
             android:layout_marginTop="-50dp"
             android:layout_marginEnd="300dp"
             android:backgroundTint="@color/blue" />
+
+        <ImageView
+            android:id="@+id/left_image"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:src="@drawable/left"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="-50dp"/>
+
 
         <TextView
             android:id="@+id/dogs_start_lesson5"

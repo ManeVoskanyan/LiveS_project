@@ -11,42 +11,38 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
-public class DogsLessons3Fragment extends Fragment {
+public class DogsLessons4Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_dogs_lessons3, container, false);
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button page_turner1 = view.findViewById(R.id.page_turner1);
+        View view =  inflater.inflate(R.layout.fragment_dogs_lessons4, container, false);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button page_turner2 = view.findViewById(R.id.page_turner2);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button end_button = view.findViewById(R.id.end_button);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) ImageView correct_image = view.findViewById(R.id.correct_image);
+        end_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                correct_image.setVisibility(View.VISIBLE);
+            }
+        });
+
         page_turner2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onPageTurner2BtnClick();
             }
         });
-        page_turner1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onPageTurner1BtnClick();
-            }
-        });
         return view;
     }
-    public void onPageTurner1BtnClick() {
-        DogsLessons4Fragment dogsLessons4Fragment = new DogsLessons4Fragment();
-        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.lessons_fragment2_container, dogsLessons4Fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
     public void onPageTurner2BtnClick() {
-        DogsLessons2Fragment dogsLessons2Fragment = new DogsLessons2Fragment();
+        DogsLessons3Fragment dogsLessons3Fragment = new DogsLessons3Fragment();
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.lessons_fragment2_container, dogsLessons2Fragment);
+        fragmentTransaction.replace(R.id.lessons_fragment2_container, dogsLessons3Fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+
 }

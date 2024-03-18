@@ -66,6 +66,14 @@ Here you'll find expert advice on effectively handling a dog attack and taking a
             android:layout_marginTop="15dp"
             android:layout_marginStart="300dp"/>
 
+        <ImageView
+            android:id="@+id/right_image"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:src="@drawable/right"
+            android:layout_marginStart="317dp"
+            android:layout_marginTop="-50dp"/>
+
         <TextView
             android:id="@+id/dogs_start_lesson5"
             android:layout_width="match_parent"
@@ -73,6 +81,9 @@ Here you'll find expert advice on effectively handling a dog attack and taking a
             android:focusableInTouchMode="true"
             android:text=""
             android:textSize="18dp" />
+
+
+
     </LinearLayout>
 
 </ScrollView>

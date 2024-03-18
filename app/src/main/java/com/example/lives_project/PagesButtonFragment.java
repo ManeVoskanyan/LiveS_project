@@ -17,24 +17,24 @@ public class PagesButtonFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
        View view = inflater.inflate(R.layout.fragment_pages_button, container, false);
-//       Button button_pages = view.findViewById(R.id.button_pages);
-//       button_pages.setOnClickListener(new View.OnClickListener() {
-//           @Override
-//           public void onClick(View v) {
-//               onPagesBtnClick();
-//           }
-//
-//       });
-//
-//
+       Button button_pages = view.findViewById(R.id.button_pages);
+       button_pages.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               onPagesBtnClick();
+           }
+
+      });
+
+
         return view;
  }
-//    public void onPagesBtnClick() {
-//        DogsLessons2Fragment dogsLessons2Fragment = new DogsLessons2Fragment();
-//        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.lessons_fragment2_container, dogsLessons2Fragment);
-//        fragmentTransaction.addToBackStack(null);
-//        fragmentTransaction.commit();
-//    }
+    public void onPagesBtnClick() {
+        DogsLessons2Fragment dogsLessons2Fragment = new DogsLessons2Fragment();
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.lessons_fragment2_container, dogsLessons2Fragment);
+       fragmentTransaction.addToBackStack(null);
+       fragmentTransaction.commit();
+   }
 }
