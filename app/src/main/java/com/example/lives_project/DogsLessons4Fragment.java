@@ -14,20 +14,21 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class DogsLessons4Fragment extends Fragment {
+//    private OnEndBtnClickListener onEndBtnClickListener;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_dogs_lessons4, container, false);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button page_turner2 = view.findViewById(R.id.page_turner2);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button end_button = view.findViewById(R.id.end_button);
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) ImageView correct_image = view.findViewById(R.id.correct_image);
-        end_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                correct_image.setVisibility(View.VISIBLE);
-            }
-        });
-
+//        end_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (onEndBtnClickListener != null) {
+//                    onEndBtnClickListener.onEndBtnClick();
+//                }
+//            }
+//        });
         page_turner2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,5 +45,11 @@ public class DogsLessons4Fragment extends Fragment {
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+//    public interface OnEndBtnClickListener {
+//        void onEndBtnClick();
+//    }
+//    public void setOnEndBtnClickListener ( OnEndBtnClickListener onEndBtnClickListener ){
+//        this.onEndBtnClickListener = onEndBtnClickListener;
+//    }
 
 }

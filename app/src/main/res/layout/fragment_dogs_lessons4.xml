@@ -51,6 +51,23 @@
             android:layout_marginStart="17dp"
             android:layout_marginTop="-50dp"/>
 
+        <Button
+            android:id="@+id/end_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="300dp"
+            android:layout_marginTop="-50dp"
+            android:backgroundTint="@color/blue" />
+
+        <ImageView
+            android:id="@+id/check_image"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:src="@drawable/check"
+            android:layout_marginStart="320dp"
+            android:layout_marginTop="-50dp"/>
+
+
         <TextView
             android:id="@+id/dogs_start_lesson5"
             android:layout_width="match_parent"
@@ -59,13 +76,7 @@
             android:text=""
             android:textSize="18dp" />
 
-        <Button
-            android:id="@+id/end_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="300dp"
-            android:layout_marginTop="-70dp"
-            android:backgroundTint="@color/blue" />
+
 
 
     </LinearLayout>

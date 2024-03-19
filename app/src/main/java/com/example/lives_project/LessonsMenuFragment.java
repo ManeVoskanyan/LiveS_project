@@ -19,22 +19,52 @@ public class LessonsMenuFragment extends Fragment {
 
    View view = inflater.inflate(R.layout.fragment_lessons_menu, container, false);
         ImageView woman_dog_image = view.findViewById(R.id.girl_dog_bg);
+        ImageView scared_girl_image = view.findViewById(R.id.scared_girl_bg);
+        ImageView natural_disaster_image = view.findViewById(R.id.girl_danger_bg);
+
+        natural_disaster_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onNaturalImageClick();
+            }
+        });
+        scared_girl_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onDangerImageClick();
+            }
+        });
         woman_dog_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onImageClick();
+                onAnimalImageClick();
             }
         });
 
   return  view;
     }
 
-    public  void onImageClick(){
+    public  void onAnimalImageClick(){
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.lessons_fragment2_container, new AnimalMenuFragment());
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
 
+    public  void onDangerImageClick(){
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.lessons_fragment2_container, new DangerousSituationsMenuFragment());
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public  void onNaturalImageClick(){
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.lessons_fragment2_container, new NaturalDisastersMenuFragment());
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }

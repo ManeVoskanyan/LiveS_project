@@ -13,12 +13,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 public class AnimalMenuFragment extends Fragment {
+    @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+    ImageView correct_image;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_animal_menu, container, false);
          ImageView dogs_image  = view.findViewById(R.id.dog_image_bg);
+         correct_image = view.findViewById(R.id.correct_image);
         dogs_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,5 +73,8 @@ public class AnimalMenuFragment extends Fragment {
         fragmentTransaction.commit();
 
     }
+//    public void showImage() {
+//        correct_image.setVisibility(View.VISIBLE);
+//    }
 
 }
