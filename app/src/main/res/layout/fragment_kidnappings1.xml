@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sky_blue"
+    android:layout_marginBottom="130dp"
+    tools:context=".DogsLessonsStartFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/sky_blue">
+
+        <TextView
+            android:id="@+id/dogs_start_lesson1"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:text="@string/first_lesson_start1"/>
+
+        <TextView
+            android:id="@+id/dogs_start_lesson2"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:text="@string/first_lesson_start3" />
+
+        <TextView
+            android:id="@+id/dogs_start_lesson3"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:text="@string/first_lesson_start2" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:focusableInTouchMode="true"
+            app:srcCompat="@drawable/man_dog_image"/>
+
+        <TextView
+            android:id="@+id/dogs_start_lesson4"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:text="What to do in case of a dog attack? Picture this scenario: you're enjoying a morning run in the park when suddenly you’re approached by a stray dog showing clear signs of aggression. What should you do in such situation? Is it advisable to attempt escape or is engaging in a physical altercation a better option? Or perhaps simply offering the dog a treat would be sufficient?
+Here you'll find expert advice on effectively handling a dog attack and taking appropriate actions if it occurs. Who's at risk? Runners, cyclists, and other fast-moving individuals are most vulnerable. Dogs react to motion, triggering their instinct to chase. Additionally, dogs often perceive certain areas as their territory." />
+
+        <Button
+            android:id="@+id/page_turner1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="300dp"/>
+
+        <ImageView
+            android:id="@+id/right_image"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:src="@drawable/right"
+            android:layout_marginStart="317dp"
+            android:layout_marginTop="-50dp"/>
+
+        <TextView
+            android:id="@+id/dogs_start_lesson5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:text=""
+            android:textSize="18dp" />
+
+
+    </LinearLayout>
+
+</ScrollView>

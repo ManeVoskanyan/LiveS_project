@@ -14,26 +14,23 @@ import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
 
-public class DogsLessonsFragment extends Fragment {
+public class ChasingsStartFragment extends Fragment {
 
-    TextView dogs_textview;
-    LottieAnimationView dog_lottie;
-
-    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_dogs_lessons, container, false);
-        dogs_textview = view.findViewById(R.id.dogs_start_textview);
-        dog_lottie = view.findViewById(R.id.lottie_dog);
-        dog_lottie.animate().alpha(0).translationY(-1000).setDuration(2000).setStartDelay(1000);
-        dogs_textview.animate().alpha(0).translationX(2000).setDuration(1400).setStartDelay(1000);
+       View view = inflater.inflate(R.layout.fragment_chasings_start, container, false);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) TextView chasings_start_textview = view.findViewById(R.id.chasings_start_textview);
+        LottieAnimationView lottie_man = view.findViewById(R.id.lottie_man);
+        lottie_man.animate().alpha(0).translationXBy(2000).setDuration(3500);
+        chasings_start_textview.animate().alpha(0).translationXBy(2000).setDuration(4500);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                DogsLessonsStartFragment dogsLessonsStartFragment = new DogsLessonsStartFragment();
+              Chasings1Fragment chasings1Fragment = new Chasings1Fragment();
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.lessons_fragment2_container, dogsLessonsStartFragment);
+                transaction.replace(R.id.lessons_fragment2_container, chasings1Fragment);
                 transaction.commit();
             }
         }, 3000);
