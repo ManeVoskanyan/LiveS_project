@@ -134,7 +134,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.309"
-        app:srcCompat="@drawable/dog_image1" />
+        app:srcCompat="@drawable/fire" />
 
     <ImageView
         android:id="@+id/tsunamis_image_bg"
@@ -170,7 +170,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.309"
-        app:srcCompat="@drawable/bear_image" />
+        app:srcCompat="@drawable/tsunami" />
 
     <ImageView
         android:id="@+id/earthquakes_image_bg"
@@ -192,21 +192,21 @@
 
     <ImageView
         android:id="@+id/snake_image"
-        android:layout_width="wrap_content"
-        android:layout_height="111dp"
+        android:layout_width="141dp"
+        android:layout_height="117dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="179dp"
-        android:layout_marginEnd="247dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginEnd="241dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.309"
-        app:srcCompat="@drawable/snake_image" />
+        app:srcCompat="@drawable/ruin" />
 
     <ImageView
         android:id="@+id/correct_image"

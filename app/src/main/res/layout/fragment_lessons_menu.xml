@@ -206,7 +206,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.309"
-        app:srcCompat="@drawable/boy_danger" />
+        app:srcCompat="@drawable/boy_ruins" />
 
 
 </RelativeLayout>
