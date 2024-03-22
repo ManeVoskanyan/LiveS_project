@@ -12,13 +12,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class Fires1Fragment extends Fragment {
-
+public class Earthquakes3Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_fires1, container, false);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_earthquakes3, container, false);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button page_turner1 = view.findViewById(R.id.page_turner1);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button page_turner2 = view.findViewById(R.id.page_turner2);
+        page_turner2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onPageTurner2BtnClick();
+            }
+        });
         page_turner1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,7 +37,14 @@ public class Fires1Fragment extends Fragment {
     public void onPageTurner1BtnClick() {
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.lessons_fragment2_container, new Fires2Fragment());
+        fragmentTransaction.replace(R.id.lessons_fragment2_container, new Earthquakes4Fragment());
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+    public void onPageTurner2BtnClick() {
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.lessons_fragment2_container, new Earthquakes2Fragment());
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }

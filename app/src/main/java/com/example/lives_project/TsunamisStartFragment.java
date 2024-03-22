@@ -21,7 +21,7 @@ public class TsunamisStartFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tsunamis_start, container, false);
         LottieAnimationView lottie_tsunami = view.findViewById(R.id.lottie_tsunami);
         TextView tsunamis_start_textview = view.findViewById(R.id.tsunamis_start_textview);
-        lottie_tsunami.animate().alpha(0).translationY(-1000).setDuration(2000).setStartDelay(1000);
+        lottie_tsunami.animate().alpha(0).translationY(-1000).setDuration(1800).setStartDelay(1000);
         tsunamis_start_textview.animate().alpha(0).translationX(2000).setDuration(1500).setStartDelay(1000);
 
         new Handler().postDelayed(new Runnable() {
