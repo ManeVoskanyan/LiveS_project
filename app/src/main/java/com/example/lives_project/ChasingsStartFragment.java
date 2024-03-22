@@ -22,15 +22,16 @@ public class ChasingsStartFragment extends Fragment {
        View view = inflater.inflate(R.layout.fragment_chasings_start, container, false);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) TextView chasings_start_textview = view.findViewById(R.id.chasings_start_textview);
         LottieAnimationView lottie_man = view.findViewById(R.id.lottie_man);
-        lottie_man.animate().alpha(0).translationXBy(2000).setDuration(3500);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) LottieAnimationView lottie_man2 = view.findViewById(R.id.lottie_man2);
+        lottie_man.animate().alpha(1).translationXBy(2000).setDuration(3500);
+        lottie_man2.animate().alpha(1).translationXBy(2000).setDuration(3000);
         chasings_start_textview.animate().alpha(0).translationXBy(2000).setDuration(4500);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-              Chasings1Fragment chasings1Fragment = new Chasings1Fragment();
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.lessons_fragment2_container, chasings1Fragment);
+                transaction.replace(R.id.lessons_fragment2_container, new Chasings1Fragment());
                 transaction.commit();
             }
         }, 3000);

@@ -21,8 +21,10 @@ public class AttacksStartFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_attacks_start, container, false);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) TextView attacks_start_textview = view.findViewById(R.id.attacks_start_textview);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) LottieAnimationView lottie_knife = view.findViewById(R.id.lottie_knife);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) LottieAnimationView lottie_ambulance = view.findViewById(R.id.lottie_ambulance);
         lottie_knife.animate().alpha(0).translationY(-1000).setDuration(2000).setStartDelay(1000);
         attacks_start_textview.animate().alpha(0).translationX(2000).setDuration(1400).setStartDelay(1000);
+        lottie_ambulance.animate().alpha(0).translationX(2000).setDuration(1500);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

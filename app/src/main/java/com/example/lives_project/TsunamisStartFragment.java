@@ -1,6 +1,5 @@
 package com.example.lives_project;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,24 +13,22 @@ import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
 
-public class BearsLessonsFragment extends Fragment {
-    TextView bears_textview;
-    LottieAnimationView bear_lottie;
+public class TsunamisStartFragment extends Fragment {
 
-    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_bears_lessons, container, false);
-        bears_textview = view.findViewById(R.id.bears_start_textview);
-        bear_lottie = view.findViewById(R.id.lottie_bear);
-        bear_lottie.animate().alpha(0).translationY(-1000).setDuration(2000).setStartDelay(1000);
-        bears_textview.animate().alpha(0).translationX(2000).setDuration(1400).setStartDelay(1000);
+        View view = inflater.inflate(R.layout.fragment_tsunamis_start, container, false);
+        LottieAnimationView lottie_tsunami = view.findViewById(R.id.lottie_tsunami);
+        TextView tsunamis_start_textview = view.findViewById(R.id.tsunamis_start_textview);
+        lottie_tsunami.animate().alpha(0).translationY(-1000).setDuration(2000).setStartDelay(1000);
+        tsunamis_start_textview.animate().alpha(0).translationX(2000).setDuration(1500).setStartDelay(1000);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.lessons_fragment2_container, new BearsLessonsStartFragment());
+                transaction.replace(R.id.lessons_fragment2_container, new Tsunamis1Fragment());
                 transaction.commit();
             }
         }, 3000);

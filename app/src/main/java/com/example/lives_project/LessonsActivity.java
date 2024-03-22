@@ -39,4 +39,8 @@ public class LessonsActivity extends AppCompatActivity { // implements DogsLesso
 //          animalMenuFragment.showImage();
 //      }
 //    }
+    @SuppressLint("MissingSuperCall")
+    public void onBackPressed () {
+
+    }
 }

@@ -12,26 +12,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class Kidnappings1Fragment extends Fragment {
+public class Chasings4Fragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-      View view = inflater.inflate(R.layout.fragment_kidnappings1, container, false);
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button page_turner1 = view.findViewById(R.id.page_turner1);
-        page_turner1.setOnClickListener(new View.OnClickListener() {
+      View view = inflater.inflate(R.layout.fragment_chasings4, container, false);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button page_turner2 = view.findViewById(R.id.page_turner2);
+        page_turner2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onPageTurner1BtnClick();
+                onPageTurner2BtnClick();
             }
         });
         return view;
     }
-    public void onPageTurner1BtnClick() {
+    public void onPageTurner2BtnClick() {
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.lessons_fragment2_container, new Kidnappings2Fragment() );
+        fragmentTransaction.replace(R.id.lessons_fragment2_container, new Chasings3Fragment() );
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+
     }
 }

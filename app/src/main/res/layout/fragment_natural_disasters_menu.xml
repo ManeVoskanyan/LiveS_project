@@ -30,14 +30,14 @@
 
     <TextView
         android:id="@+id/snakes_textview"
-        android:layout_width="131dp"
-        android:layout_height="26dp"
+        android:layout_width="171dp"
+        android:layout_height="33dp"
         android:layout_below="@+id/animals_attack_textview"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="41dp"
-        android:layout_marginTop="221dp"
-        android:layout_marginEnd="239dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="199dp"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
         android:shadowDx="1"
@@ -78,14 +78,14 @@
 
     <TextView
         android:id="@+id/bears_textview"
-        android:layout_width="89dp"
-        android:layout_height="36dp"
+        android:layout_width="159dp"
+        android:layout_height="43dp"
         android:layout_below="@+id/animals_attack_textview"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="163dp"
+        android:layout_marginStart="154dp"
         android:layout_marginTop="427dp"
-        android:layout_marginEnd="158dp"
+        android:layout_marginEnd="97dp"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
         android:shadowDx="1"
@@ -101,7 +101,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/dog_image_bg"
+        android:id="@+id/fire_image_bg"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_alignParentStart="true"
@@ -137,7 +137,7 @@
         app:srcCompat="@drawable/dog_image1" />
 
     <ImageView
-        android:id="@+id/bear_image_bg"
+        android:id="@+id/tsunamis_image_bg"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_alignParentStart="true"
@@ -173,7 +173,7 @@
         app:srcCompat="@drawable/bear_image" />
 
     <ImageView
-        android:id="@+id/snake_image_bg"
+        android:id="@+id/earthquakes_image_bg"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_alignParentStart="true"
