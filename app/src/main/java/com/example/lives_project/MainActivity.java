@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -43,6 +44,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        ImageView safe_button = findViewById(R.id.safety_btn);
+        safe_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              onSafeBtnClick(v);
+           }
+        });
+
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map_google);
         if ( mapFragment != null){
@@ -119,4 +129,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         Intent intent = new Intent(MainActivity.this, CompassActivity.class);
         startActivity(intent);
     }
+
+
+    public void onSafeBtnClick (View v ){
+       Intent intent = new Intent(MainActivity.this, SendMassageActivity.class);
+       startActivity(intent);
     }
+
+}

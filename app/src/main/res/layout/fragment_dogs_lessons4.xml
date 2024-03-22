@@ -20,20 +20,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:text="tttttttt
-            tttttttttttttttttttttttttttt
-            ttttttttttttttttttttttttttt
-            ttttttttttttttttttttttttttt
-            ttttttttttttttttttttttttttttt
-            tttttttttttttttttttttjjjjjjjjj
-            jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
-            jjjjjjjjjjjjjjsssssssssssssssssss
-            ssssssssssssssssssssssssssssssssss
-            ssssssssssssssssssssssssssssssssssss
-            ssssssssshhhhhhhhhhhhhhhhhhhhhhhhhhhh
-            hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-            hhhhhhhhh"/>
+            android:textSize="25dp"
+            android:text=">
+Secondly, such actions will not deter the dog; instead, they'll likely further enrage it. Even a friendly dog won't appreciate someone waving their arms or, worse, a stick around it. And remember the cardinal rule when dealing with an aggressive dog: never turn your back to it. It's best to walk away from the dog sideways. This way, you can keep an eye on its behavior. And don't run. That will only trigger its hunting instincts. And if the dog starts chasing you, chances are you won't outrun it. Dogs sort even faster than Usain Bolt. Dogs can kill; you must understand that.
+So there's no need to hesitate to call for help. What to do if a dog attacks you? Animals always attack for a specific reason, but this reason isn't always obvious. For example, a dog may attack if it's hungry or if it's defending its puppies or territory. If, despite your desire to quietly walk away, the dog still attacks you, remember the following rules of conduct.  If you have an ultrasonic repellent, use it. This device emits ultrasonic waves that you can't hear, unlike dogs. This sound irritates the animal's sensitive hearing, so perhaps you'll be lucky, and the dog will run away on its own.
+If the dog is charging at you, try to cover its head with your jacket or sweater as soon as it comes within your reach. While it's dealing with your clothing, make your escape. It's best to hide behind something, like a tree, table, car, or your neighbor. Well, maybe the neighbor isn't the best example. If possible, climb a tree. Dogs can't climb trees. Just watch out for angry squirrels. If you don't have outerwear, throw your bag or any other object aside. This might distract the dog. That way, the animal will initially react to the object, giving you time to escape. If you have food with you, like a sandwich or sausage, throw it to the dog. Perhaps that was the main reason for the attack. If you couldn't distract the dog and it's preparing to bite you, cover your neck with your hands. It's the most vulnerable part of the human body. The major arteries and veins run here, so don't let the dog get to your throat. Protect your face and neck at all costs. Whatever happens, don't let the dog reach vital points such as your neck and face. If this happens, you won't be able to defend yourself. Try to put something between yourself and the animal. For example, a passing mail carrier. At worst, your hand will do. Use your weight to pin the dog to the ground. Your opponent has only one weapon - its sharp jaws. Stay away from them. Protect yourself from bites, and you'll win the fight. The main thing is to immobilize the dog's head. This can be done by pressing on its neck. Let's assume you managed to show the dog who's the boss. It got scared and ran away. What should you do next? If you realize that a bite is inevitable, offer your shin or forearm. Yes, it will hurt, but you'll avoid fatal blood loss. If the dog still bites you, don't try to pull your arm or leg out. By doing so, you'll only worsen the situation and increase the area of the wound because a dog's jaws are very strong, and its teeth will sink even deeper into your body. Instead, hit the dog on the nose or in the eyes. Experts also recommend grabbing the dog's hind legs and lifting it off the ground. The most vulnerable areas of a dog are:
+- Tip of the nose
+- Eyes
+- Nostrils
+- Back of the head
+- Joints of the paws
+- Groin
+Use the weight of your body to pin the dog to the ground with your knees or elbows. Dogs can bite, growl, and bark, but they don't know how to fight. That's why immobilizing the animal is a good idea until someone comes to your aid. The danger can significantly increase if not one but a whole pack of dogs attacks you. It seems like it's just not your day. In this case, behave the same way as with one dog, with the only difference being that you shouldn't let the pack surround you.
+
+Try to stand with your back against a wall or fence, and don't run. Dogs will undoubtedly chase after you because at that moment, you look to them like a tennis ball that needs to be caught.
+Part 3: After the attack. Seek medical attention. What to do if you've been bitten? If a dog has bitten you, you need to treat the wound as quickly as possible. Here's what you need to do. Gently wash the wound with soap and water, then treat it with alcohol to prevent infection. It doesn't matter what kind of dog bit you, whether it's a street dog or a familiar one. You need to go to the hospital or emergency room, where they will take your blood and additional tests. After that, you'll be prescribed a course of rabies injection if you can't confirm that the dog that bit you was vaccinated. Contrary to popular belief, you won't receive 20-30 injections in the stomach. There are only 6 ones now, and they're administered in the shoulder or thigh. The statistics show that in 99% of cases, it's dogs that transmit rabies to humans. The first symptoms of the disease appear 30-50 days after the bite, so it's crucial to get a rabies vaccine within 2 weeks, especially if the animal hasn't been checked for diseases. If you don't receive timely help, the consequences will be fatal. Unfortunately, rabies cannot be cured; only preventive measures can help. The rabies virus is transmitted not only through bites but also through mucous membranes, so seek assistance as soon as possible. Even the smallest wound can become an open door for infection. Report the dog. Call the police and report the attack. Try to describe the dog and its behavior as accurately as possible. This information can save lives.☀️
+"/>
 
         <Button
             android:id="@+id/page_turner2"

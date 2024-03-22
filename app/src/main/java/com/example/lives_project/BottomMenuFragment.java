@@ -17,6 +17,24 @@ public class BottomMenuFragment extends Fragment {
                              Bundle savedInstanceState) {
      View view  = inflater.inflate(R.layout.fragment_bottom_menu, container, false);
         ImageView home_image = view.findViewById(R.id.home_image);
+        ImageView lessonsImage = view.findViewById(R.id.lessons_image);
+        ImageView compass_image = view.findViewById(R.id.compass_image);
+        compass_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CompassActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+            }
+        });
+        lessonsImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+             Intent intent = new Intent(getActivity(), LessonsActivity.class);
+             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+             startActivity(intent);
+            }
+        });
         home_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
