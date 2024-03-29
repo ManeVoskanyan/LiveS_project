@@ -28,9 +28,14 @@ public class LessonsActivity extends AppCompatActivity { // implements DogsLesso
         transaction2.add(R.id.lessons_fragment2_container, lessonsMenuFragment);
         transaction2.commit();
 
+
 //        DogsLessons4Fragment dogsLessons4Fragment = new DogsLessons4Fragment();
 //        getSupportFragmentManager().beginTransaction().replace(R.id.lessons_fragment2_container, dogsLessons4Fragment).commit();
 //        dogsLessons4Fragment.setOnEndBtnClickListener(this);
+
+    }
+    @SuppressLint("MissingSuperCall")
+    public void onBackPressed() {
 
     }
 //    public void onEndBtnClick () {
