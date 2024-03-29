@@ -22,7 +22,38 @@
               android:textSize="25dp"
               android:text="If you accidentally intrude on their territory, they may attempt to defend it. So, what should you do if you see a dog ready to attack?
 Part 1: How to avoid an attack? Don't panic. Many people firmly believe that dogs and some other animals can sense human fear. Well, it's not entirely true. Dogs just become more confident when they see that their victim is scared. So, no matter how difficult it may be, try not to panic. If the dog sees that you're not scared, it may decide that attacking you is not worth it.
-Don't attempt to flee. Firstly, remember, most dog breeds run faster than humans. Accept this fact as a given. You have no chance of outrunning them. Secondly, you need to know that fleeing will trigger the dog's chasing instinct. You'll create a problem for yourself, and the dog might not have been aggressive before that. Stop. If a dog begins to threaten you during your run, take a transition to walking, then come to a complete stop. Most likely, the dog perceived your fast running as a threat. Someone has to address this threat. It's either you or the dog. Trust me, it's better to choose the former option. So, if you stop moving, there's a chance that the dog will lose interest and leave. One more piece of advice: it's better to stand sideways to the dog. This way, you'll appear thinner, which will provoke less aggression from the animal. Canine body language will tell and show everything if you can read it. For example, if the dog is already pressed down and growling, you know what? It's best to stay away from it. Don't approach the animal unless you want to provoke it into attacking. But if this tactic doesn't work and the dog is still preparing to pounce on you, then remember the following rules."/>
+Don't attempt to flee."/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:focusableInTouchMode="true"
+            app:srcCompat="@drawable/man_dog_image"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:text="Firstly, remember, most dog breeds run faster than humans. Accept this fact as a given. You have no chance of outrunning them. Secondly, you need to know that fleeing will trigger the dog's chasing instinct. You'll create a problem for yourself, and the dog might not have been aggressive before that. Stop. If a dog begins to threaten you during your run, take a transition to walking, then come to a complete stop. Most likely, the dog perceived your fast running as a threat. Someone has to address this threat. It's either you or the dog. Trust me, it's better to choose the former option. So, if you stop moving, there's a chance that the dog will lose interest and leave. "
+            android:textSize="25dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:focusableInTouchMode="true"
+            app:srcCompat="@drawable/man_dog_image"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:text="One more piece of advice: it's better to stand sideways to the dog. This way, you'll appear thinner, which will provoke less aggression from the animal. Canine body language will tell and show everything if you can read it. For example, if the dog is already pressed down and growling, you know what? It's best to stay away from it. Don't approach the animal unless you want to provoke it into attacking. But if this tactic doesn't work and the dog is still preparing to pounce on you, then remember the following rules."
+            android:textSize="25dp" />
 
         <Button
             android:id="@+id/page_turner1"

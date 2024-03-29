@@ -56,7 +56,7 @@
             android:exported="true"></activity>
 
         <activity
-            android:name=".SendMassageActivity"
+            android:name=".NumbersActivity"
             android:exported="true"></activity>
 
         <meta-data

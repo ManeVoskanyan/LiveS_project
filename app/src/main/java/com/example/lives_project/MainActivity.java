@@ -1,5 +1,6 @@
 package com.example.lives_project;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
@@ -21,6 +22,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -44,6 +47,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        BottomMenuFragment bottomMenuFragment = new BottomMenuFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.add(R.id.lessons_fragment1_container, bottomMenuFragment);
+        transaction.commit();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         ImageView safe_button = findViewById(R.id.safety_btn);
         safe_button.setOnClickListener(new View.OnClickListener() {
@@ -120,20 +128,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         }
 
-    public void onLessonsClick (View v ){
-        Intent intent = new Intent(MainActivity.this, LessonsActivity.class);
-        startActivity(intent);
-    }
-
-    public void onCompassClick (View v ){
-        Intent intent = new Intent(MainActivity.this, CompassActivity.class);
-        startActivity(intent);
-    }
-
-
     public void onSafeBtnClick (View v ){
-       Intent intent = new Intent(MainActivity.this, SendMassageActivity.class);
-       startActivity(intent);
+        openNumbersActivity(v);
     }
 
+    public void openNumbersActivity(View view) {
+        Intent intent = new Intent(this, NumbersActivity.class);
+        startActivityForResult(intent, 1);
+    }
 }
