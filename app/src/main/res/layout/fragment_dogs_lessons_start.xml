@@ -65,7 +65,7 @@ Here you'll find expert advice on effectively handling a dog attack and taking a
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/man_dog_image"/>
+            app:srcCompat="@drawable/girl_dog_run"/>
 
 
         <TextView

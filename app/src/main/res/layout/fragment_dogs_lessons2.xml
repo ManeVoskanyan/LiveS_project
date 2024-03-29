@@ -30,7 +30,7 @@ Don't attempt to flee."/>
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/man_dog_image"/>
+            app:srcCompat="@drawable/boy"/>
 
 
         <TextView
@@ -46,7 +46,7 @@ Don't attempt to flee."/>
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/man_dog_image"/>
+            app:srcCompat="@drawable/girl_telephone"/>
 
         <TextView
             android:layout_width="match_parent"
