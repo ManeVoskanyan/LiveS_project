@@ -256,22 +256,22 @@ public class BottomMenuFragment extends Fragment {
     private void saveRecordingToFirebase(String filePath) {
         Uri fileUri = Uri.fromFile(new File(filePath)); // Создаем Uri из пути к файлу
 
-        String fileName = "Recording " + recordingCounter;
+        String fileName = "Recording_" + recordingCounter + ".mp3";
 
         StorageReference fileRef = storageReference.child(fileName); // Создаем ссылку на файл в Firebase Storage
 
         fileRef.putFile(fileUri)
                 .addOnSuccessListener(taskSnapshot -> {
                     Toast.makeText(getContext(), "Recording saved to Firebase", Toast.LENGTH_SHORT).show();
-
+                    // Увеличиваем значение счетчика
+                    recordingCounter++;
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(getContext(), "Error saving recording to Firebase", Toast.LENGTH_SHORT).show();
-
                 });
-
-        recordingCounter++;
     }
+
+
 
     public void btnStopPressed(View view) {
         Button stopButton = view.findViewById(R.id.stop_button);

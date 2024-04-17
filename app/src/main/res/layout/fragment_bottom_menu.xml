@@ -100,7 +100,7 @@
         android:layout_marginBottom="-60dp"
         android:backgroundTint="@color/blue"/>
 
-
+<!--
     <Button
         android:id="@+id/main_btn2"
         android:layout_width="100dp"
@@ -109,7 +109,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="-45dp"
         android:backgroundTint="@color/blue_light"
-        app:cornerRadius="360dp" />
+        app:cornerRadius="360dp" /> -->
 
     <ImageView
         android:id="@+id/warning_image"
