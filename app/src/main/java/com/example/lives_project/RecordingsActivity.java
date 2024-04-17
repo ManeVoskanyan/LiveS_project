@@ -46,10 +46,8 @@ public class RecordingsActivity extends AppCompatActivity {
 
         storageReference = FirebaseStorage.getInstance().getReference().child("recordings");
 
-        // Retrieve recordings from Firebase Storage
         retrieveRecordingsFromFirebase();
 
-        // Set click listener to play recording when ListView item is clicked
         recordingsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -62,8 +60,6 @@ public class RecordingsActivity extends AppCompatActivity {
 
     private void retrieveRecordingsFromFirebase() {
         storageReference.listAll().addOnSuccessListener(listResult -> {
-            recordingNames.clear(); // Очистите существующие записи перед добавлением новых
-            recordingPaths.clear();
             for (StorageReference item : listResult.getItems()) {
                 String fileName = item.getName();
                 String filePath = item.getPath();
@@ -85,11 +81,9 @@ public class RecordingsActivity extends AppCompatActivity {
         }
         mediaPlayer = new MediaPlayer();
         try {
-            // Construct the StorageReference using the file name, not the file path
             StorageReference audioRef = storageReference.child(fileName);
             audioRef.getDownloadUrl().addOnSuccessListener(uri -> {
                 try {
-                    // Set the data source for the media player using the URI
                     mediaPlayer.setDataSource(getApplicationContext(), uri);
                     mediaPlayer.prepare();
                     mediaPlayer.start();
