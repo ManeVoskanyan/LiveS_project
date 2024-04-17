@@ -7,9 +7,11 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -30,10 +32,13 @@ import java.util.List;
 public class BottomMenuFragment extends Fragment {
 
     final int SEND_SMS_PERMISSION_REQUEST_CODE = 1;
+    final int LOCATION_PERMISSION_REQUEST_CODE = 2;
 
     TextView help_text;
     Button send;
     private List<String> phoneNumbers = new ArrayList<>();
+    private LocationManager locationManager;
+    private double latitude, longitude;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -80,9 +85,31 @@ public class BottomMenuFragment extends Fragment {
             requestPermissions(new String[]{Manifest.permission.SEND_SMS}, SEND_SMS_PERMISSION_REQUEST_CODE);
         }
 
+        // Запрос разрешения на местоположение
+        if (checkPermissions(Manifest.permission.ACCESS_FINE_LOCATION)) {
+            getLocation();
+        } else {
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
+        }
+
         // Загрузка номеров из SharedPreferences
         loadNumbersFromSharedPreferences();
         return view;
+    }
+
+    private void getLocation() {
+        locationManager = (LocationManager) getActivity().getSystemService(getContext().LOCATION_SERVICE);
+        if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                if (location != null) {
+                    latitude = location.getLatitude();
+                    longitude = location.getLongitude();
+                }
+            }
+        } else {
+            Toast.makeText(getContext(), "Turn on GPS", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void loadNumbersFromSharedPreferences() {
@@ -106,7 +133,7 @@ public class BottomMenuFragment extends Fragment {
             SmsManager smsManager = SmsManager.getDefault();
             for (int i = 0; i < phoneNumbers.size(); i++) {
                 if (i < 3) {
-                    smsManager.sendTextMessage(phoneNumbers.get(i), null, sendMessage, null, null);
+                    smsManager.sendTextMessage(phoneNumbers.get(i), null, sendMessage + "\nMy location: " + latitude + ", " + longitude + "\nClick here to open in maps: https://maps.google.com",  null, null);
                 } else {
                     break; // Остановить цикл, если уже отправлено три сообщения
                 }
@@ -117,7 +144,17 @@ public class BottomMenuFragment extends Fragment {
         }
     }
 
-
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                getLocation();
+            } else {
+                Toast.makeText(getContext(), "Location permission denied", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -131,4 +168,5 @@ public class BottomMenuFragment extends Fragment {
         int check = ContextCompat.checkSelfPermission(requireContext(), permissions);
         return (check == PackageManager.PERMISSION_GRANTED);
     }
+
 }
