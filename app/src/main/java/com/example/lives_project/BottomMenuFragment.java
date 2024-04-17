@@ -4,11 +4,15 @@ import static android.app.Activity.RESULT_OK;
 import static android.content.Context.MODE_PRIVATE;
 
 import android.Manifest;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
+import android.media.MediaPlayer;
+import android.media.MediaRecorder;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,6 +21,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.os.Environment;
 import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,10 +31,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BottomMenuFragment extends Fragment {
+    private static final int MICROPHONE_PERMISSION_CODE = 200;
+    private MediaRecorder mediaRecorder;
+    private MediaPlayer mediaPlayer;
+    private StorageReference storageReference;
+
+    private int recordingNumber = 1;
+
+    String filepath;
 
     final int SEND_SMS_PERMISSION_REQUEST_CODE = 1;
     final int LOCATION_PERMISSION_REQUEST_CODE = 2;
@@ -47,6 +65,13 @@ public class BottomMenuFragment extends Fragment {
         ImageView home_image = view.findViewById(R.id.home_image);
         ImageView lessonsImage = view.findViewById(R.id.lessons_image);
         ImageView compass_image = view.findViewById(R.id.compass_image);
+        Button stopButton = view.findViewById(R.id.stop_button);
+        stopButton.setVisibility(View.INVISIBLE);
+        storageReference = FirebaseStorage.getInstance().getReference().child("recordings");
+
+        if (isMicrophonePresent()) {
+            getMicrophonePermission();
+        }
         compass_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,7 +149,28 @@ public class BottomMenuFragment extends Fragment {
     }
 
     public void onSend(View view) {
-        String sendMessage = help_text.getText().toString();
+        Button stopButton = getView().findViewById(R.id.stop_button); // Изменение здесь
+        stopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnStopPressed(v);
+            }
+        });
+        stopButton.setVisibility(View.VISIBLE);
+        try {
+            mediaRecorder = new MediaRecorder();
+            filepath = getRecordingFilePath();
+            mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+            mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+            mediaRecorder.setOutputFile(filepath);
+            mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+            mediaRecorder.prepare();
+            mediaRecorder.start();
+            Toast.makeText(getContext(), "Recording is started", Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    String sendMessage = help_text.getText().toString();
         if (phoneNumbers.isEmpty() || sendMessage.isEmpty()) {
             Toast.makeText(getContext(), "Please enter phone numbers", Toast.LENGTH_SHORT).show();
             return;
@@ -167,6 +213,81 @@ public class BottomMenuFragment extends Fragment {
     public boolean checkPermissions(String permissions) {
         int check = ContextCompat.checkSelfPermission(requireContext(), permissions);
         return (check == PackageManager.PERMISSION_GRANTED);
+    }
+    private boolean isMicrophonePresent() {
+        PackageManager packageManager = getContext().getPackageManager();
+        return packageManager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE);
+    }
+
+    private void getMicrophonePermission() {
+        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.RECORD_AUDIO)
+                == PackageManager.PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.RECORD_AUDIO}, MICROPHONE_PERMISSION_CODE);
+        }
+    }
+
+    private String getRecordingFilePath() {
+        ContextWrapper contextWrapper = new ContextWrapper(getContext());
+        File musicDirectory = contextWrapper.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
+        if (musicDirectory == null) {
+            musicDirectory = new File(contextWrapper.getExternalFilesDir(null), "Music");
+            musicDirectory.mkdirs();
+        }
+
+        String fileName = "Recording_" + recordingNumber + ".mp3";
+        recordingNumber++;
+
+        File file = new File(musicDirectory, fileName);
+
+
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return file.getPath();
+    }
+
+    private int recordingCounter = 1;
+
+    private void saveRecordingToFirebase(String filePath) {
+        Uri fileUri = Uri.fromFile(new File(filePath)); // Создаем Uri из пути к файлу
+
+        String fileName = "Recording " + recordingCounter;
+
+        StorageReference fileRef = storageReference.child(fileName); // Создаем ссылку на файл в Firebase Storage
+
+        fileRef.putFile(fileUri)
+                .addOnSuccessListener(taskSnapshot -> {
+                    Toast.makeText(getContext(), "Recording saved to Firebase", Toast.LENGTH_SHORT).show();
+
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(getContext(), "Error saving recording to Firebase", Toast.LENGTH_SHORT).show();
+
+                });
+
+        recordingCounter++;
+    }
+
+    public void btnStopPressed(View view) {
+        Button stopButton = view.findViewById(R.id.stop_button);
+        stopButton.setVisibility(View.INVISIBLE);
+        if (mediaRecorder != null) {
+            mediaRecorder.stop();
+            mediaRecorder.release();
+            mediaRecorder = null;
+
+            Toast.makeText(getContext(), "Recording is stopped", Toast.LENGTH_LONG).show();
+
+            saveRecordingToFirebase(filepath);
+        } else {
+            Toast.makeText(getContext(), "No recording to stop", Toast.LENGTH_LONG).show();
+
+        }
     }
 
 }

@@ -131,9 +131,17 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onSafeBtnClick (View v ){
         openNumbersActivity(v);
     }
+    public void onRecordingsBtnClick (View v ){
+        openRecordingsActivity(v);
+    }
 
     public void openNumbersActivity(View view) {
         Intent intent = new Intent(this, NumbersActivity.class);
+        startActivityForResult(intent, 1);
+    }
+
+    public void openRecordingsActivity(View view) {
+        Intent intent = new Intent(this, RecordingsActivity.class);
         startActivityForResult(intent, 1);
     }
 }

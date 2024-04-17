@@ -55,7 +55,7 @@
         android:layout_marginTop="400dp"
         android:layout_marginEnd="306dp"
         android:layout_marginBottom="303dp"
-        app:srcCompat="@drawable/map2" />
+        app:srcCompat="@drawable/map1" />
 
     <TextView
         android:layout_width="104dp"
@@ -73,13 +73,14 @@
         android:textColor="@color/blue"
         android:textSize="35dp" />
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/lessons_fragment1_container"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="136dp"
-        android:layout_marginBottom="220dp"
+        android:layout_marginEnd="125dp"
+        android:layout_marginBottom="227dp"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
         android:shadowDx="2"
@@ -94,14 +95,31 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/lessons_fragment1_container"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="119dp"
-        android:layout_marginBottom="152dp"
+        android:layout_marginEnd="118dp"
+        android:layout_marginBottom="96dp"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="1"
         android:text="About LiveS"
+        android:textColor="@color/blue"
+        android:textSize="35dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lessons_fragment1_container"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="163dp"
+        android:fontFamily="@font/changa_one"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1"
+        android:text="Recordings"
         android:textColor="@color/blue"
         android:textSize="35dp" />
 
@@ -113,7 +131,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="300dp"
         android:layout_marginBottom="221dp"
-        app:srcCompat="@drawable/dailly_tasks" />
+        app:srcCompat="@drawable/lamp" />
+
 
     <ImageView
         android:id="@+id/safety_btn"
@@ -121,9 +140,20 @@
         android:layout_height="60dp"
         android:layout_above="@+id/lessons_fragment1_container"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="308dp"
-        android:layout_marginBottom="142dp"
+        android:layout_marginEnd="301dp"
+        android:layout_marginBottom="78dp"
         app:srcCompat="@drawable/safety1" />
+
+    <ImageView
+        android:id="@+id/recordings_image"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_above="@+id/lessons_fragment1_container"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="303dp"
+        android:layout_marginBottom="152dp"
+        android:onClick="onRecordingsBtnClick"
+        app:srcCompat="@drawable/microphone1" />
 
 
 </RelativeLayout>

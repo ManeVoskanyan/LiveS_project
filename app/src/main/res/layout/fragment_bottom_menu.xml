@@ -8,10 +8,28 @@
     android:background="@color/sky_blue">
 
 
+    <Button
+        android:id="@+id/stop_button"
+        android:layout_width="103dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/main_btn1"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="-59dp"
+        android:backgroundTint="@color/blue"
+        android:fontFamily="@font/changa_one"
+        android:text="Stop"
+        android:textColor="@color/sky_blue"
+        android:textSize="20dp" />
+
     <TextView
         android:id="@+id/massage"
         android:layout_width="183dp"
         android:layout_height="45dp"
+        android:layout_above="@+id/main_btn1"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="231dp"
+        android:layout_marginBottom="550dp"
         android:text="I need HELP!"
         android:textSize="25dp"
         android:visibility="invisible"
@@ -21,7 +39,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.346" />
-
 
     <LinearLayout
         android:id="@+id/bottom_linear_layout"
