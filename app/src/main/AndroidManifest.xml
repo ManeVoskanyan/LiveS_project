@@ -65,6 +65,11 @@
             android:name=".RecordingsActivity"
             android:exported="true"></activity>
 
+        <activity
+            android:name=".QuizActivity"
+            android:exported="true"></activity>
+
+
 
         <meta-data
             android:name="preloaded_fonts"

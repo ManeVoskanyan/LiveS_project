@@ -131,6 +131,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="300dp"
         android:layout_marginBottom="221dp"
+        android:onClick="onQuizBtnClick"
         app:srcCompat="@drawable/lamp" />
 
 
