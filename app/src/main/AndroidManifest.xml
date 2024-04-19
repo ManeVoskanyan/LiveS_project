@@ -69,6 +69,14 @@
             android:name=".QuizActivity"
             android:exported="true"></activity>
 
+        <activity
+            android:name=".Register"
+            android:exported="true"></activity>
+
+        <activity
+            android:name=".Login"
+            android:exported="true"></activity>
+
 
 
         <meta-data
