@@ -179,6 +179,21 @@
         android:onClick="onRecordingsBtnClick"
         app:srcCompat="@drawable/microphone1" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_arrow"
+        android:layout_width="96dp"
+        android:layout_height="83dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="306dp"
+        android:layout_marginBottom="115dp"
+        android:elevation="5dp"
+        android:indeterminate="true"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/arrow_animation" />
+
 
 </RelativeLayout>
 
