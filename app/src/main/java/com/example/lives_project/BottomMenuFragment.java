@@ -149,7 +149,7 @@ public class BottomMenuFragment extends Fragment {
     }
 
     public void onSend(View view) {
-        Button stopButton = getView().findViewById(R.id.stop_button); // Изменение здесь
+        Button stopButton = getView().findViewById(R.id.stop_button);
         stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,7 +170,7 @@ public class BottomMenuFragment extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    String sendMessage = help_text.getText().toString();
+        String sendMessage = help_text.getText().toString();
         if (phoneNumbers.isEmpty() || sendMessage.isEmpty()) {
             Toast.makeText(getContext(), "Please enter phone numbers", Toast.LENGTH_SHORT).show();
             return;
@@ -179,9 +179,9 @@ public class BottomMenuFragment extends Fragment {
             SmsManager smsManager = SmsManager.getDefault();
             for (int i = 0; i < phoneNumbers.size(); i++) {
                 if (i < 3) {
-                    smsManager.sendTextMessage(phoneNumbers.get(i), null, sendMessage + "\nMy location: " + latitude + ", " + longitude + "\nClick here to open in maps: https://maps.google.com",  null, null);
+                    smsManager.sendTextMessage(phoneNumbers.get(i), null, sendMessage + "\nMy location: " + latitude + ", " + longitude + "\nClick here to open in maps: https://maps.google.com/maps?q=" + latitude + "," + longitude,  null, null);
                 } else {
-                    break; // Остановить цикл, если уже отправлено три сообщения
+                    break;
                 }
             }
             Toast.makeText(getContext(), "Message Sent!", Toast.LENGTH_SHORT).show();
@@ -189,7 +189,6 @@ public class BottomMenuFragment extends Fragment {
             Toast.makeText(getContext(), "Permission denied", Toast.LENGTH_SHORT).show();
         }
     }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -202,10 +201,10 @@ public class BottomMenuFragment extends Fragment {
         }
     }
 
+    @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == RESULT_OK) {
-            // Переместите вызов loadNumbersFromSharedPreferences() сюда
             loadNumbersFromSharedPreferences();
         }
     }
@@ -254,16 +253,15 @@ public class BottomMenuFragment extends Fragment {
     private int recordingCounter = 1;
 
     private void saveRecordingToFirebase(String filePath) {
-        Uri fileUri = Uri.fromFile(new File(filePath)); // Создаем Uri из пути к файлу
+        Uri fileUri = Uri.fromFile(new File(filePath));
 
         String fileName = "Recording_" + recordingCounter + ".mp3";
 
-        StorageReference fileRef = storageReference.child(fileName); // Создаем ссылку на файл в Firebase Storage
+        StorageReference fileRef = storageReference.child(fileName);
 
         fileRef.putFile(fileUri)
                 .addOnSuccessListener(taskSnapshot -> {
                     Toast.makeText(getContext(), "Recording saved to Firebase", Toast.LENGTH_SHORT).show();
-                    // Увеличиваем значение счетчика
                     recordingCounter++;
                 })
                 .addOnFailureListener(e -> {

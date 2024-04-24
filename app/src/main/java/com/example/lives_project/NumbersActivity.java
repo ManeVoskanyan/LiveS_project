@@ -54,4 +54,17 @@ public class NumbersActivity extends AppCompatActivity {
             Toast.makeText(NumbersActivity.this, "Failed to save numbers", Toast.LENGTH_SHORT).show();
         }
     }
+
+  /*  @Override
+    protected void onPause() {
+        super.onPause();
+        saveNumbers();
+    }
+
+    @Override
+    public void onBackPressed() {
+        saveNumbers();
+        super.onBackPressed();
+    }
+    */
 }

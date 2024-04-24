@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -40,6 +41,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -48,13 +52,26 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     Location currentLocation;
     FusedLocationProviderClient fusedLocationProviderClient;
 
+    private LottieAnimationView arrow_lottie;
+    private List<String> phoneNumbers = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) LottieAnimationView arrow_lottie = findViewById(R.id.lottie_arrow);
-        arrow_lottie.playAnimation();
-        BottomMenuFragment bottomMenuFragment = new BottomMenuFragment();
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String phoneNumber1 = sharedPreferences.getString("phoneNumber1", "");
+        String phoneNumber2 = sharedPreferences.getString("phoneNumber2", "");
+        String phoneNumber3 = sharedPreferences.getString("phoneNumber3", "");
+        phoneNumbers.clear();
+       if ( phoneNumber1.isEmpty() && phoneNumber2.isEmpty() && phoneNumber3.isEmpty() ) {
+           @SuppressLint({"MissingInflatedId", "LocalSuppress"}) LottieAnimationView arrow_lottie = findViewById(R.id.lottie_arrow);
+           arrow_lottie.loop(true);
+           arrow_lottie.setVisibility(View.VISIBLE);
+           arrow_lottie.playAnimation();
+       }
+       BottomMenuFragment bottomMenuFragment = new BottomMenuFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.add(R.id.lessons_fragment1_container, bottomMenuFragment);
@@ -149,15 +166,17 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         Intent intent = new Intent(this, NumbersActivity.class);
         startActivityForResult(intent, 1);
     }
+
     public void openQuizActivity(View view) {
         Intent intent = new Intent(this, QuizActivity.class);
-        startActivityForResult(intent, 1);
+        startActivityForResult(intent, 2);
     }
 
     public void openRecordingsActivity(View view) {
         Intent intent = new Intent(this, RecordingsActivity.class);
-        startActivityForResult(intent, 1);
+        startActivityForResult(intent, 3);
     }
+
 
     public void showSignOutDialog(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -188,5 +207,4 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         startActivity(intent);
         finish();
     }
-
 }
