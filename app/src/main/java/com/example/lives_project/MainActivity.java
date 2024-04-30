@@ -108,11 +108,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         startActivity(intent);
     }
 
-    private void DirectionsMap(){
-        Intent intent = new Intent(this, MapsDirectionsActivity.class);
-        startActivity(intent);
-    }
-
     private void getLastLocation() {
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, FINE_PERMISSION_CODE);
@@ -160,12 +155,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onSafeBtnClick (View v ){
         openNumbersActivity(v);
     }
-    public void onQuizBtnClick(View v ){
-        openQuizActivity(v);
-    }
-    public void onRecordingsBtnClick (View v ){
-        openRecordingsActivity(v);
-    }
 
     public void openNumbersActivity(View view) {
         Intent intent = new Intent(this, NumbersActivity.class);
@@ -177,9 +166,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         startActivityForResult(intent, 2);
     }
 
+    public void openMapsDirectionsActivity(View view) {
+        Intent intent = new Intent(this, MapsDirectionsActivity.class);
+        startActivityForResult(intent, 3);
+    }
+
     public void openRecordingsActivity(View view) {
         Intent intent = new Intent(this, RecordingsActivity.class);
-        startActivityForResult(intent, 3);
+        startActivityForResult(intent, 4);
     }
 
 

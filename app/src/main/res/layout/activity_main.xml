@@ -78,7 +78,7 @@
         android:layout_marginTop="400dp"
         android:layout_marginEnd="306dp"
         android:layout_marginBottom="303dp"
-        android:onClick="DirectionsMap"
+        android:onClick="openMapsDirectionsActivity"
         app:srcCompat="@drawable/map1" />
 
     <TextView
@@ -155,7 +155,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="300dp"
         android:layout_marginBottom="221dp"
-        android:onClick="onQuizBtnClick"
+        android:onClick="openQuizActivity"
         app:srcCompat="@drawable/lamp" />
 
 
@@ -177,7 +177,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="303dp"
         android:layout_marginBottom="152dp"
-        android:onClick="onRecordingsBtnClick"
+        android:onClick="openRecordingsActivity"
         app:srcCompat="@drawable/microphone1" />
 
     <com.airbnb.lottie.LottieAnimationView

@@ -9,6 +9,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -17,18 +23,25 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     Button ansA, ansB, ansC, ansD;
 
     Button submitBtn;
-    Button lastSelectedButton; // переменная для хранения ссылки на последнюю выбранную кнопку
+    Button lastSelectedButton;
+    boolean isWaitingForNextQuestion = false;
 
     int score = 0;
-    int totalQuestion = QuestionAnswer.questions.length;
+    int totalQuestion = 0;
     int currentQuestionIndex = 0;
     String selectedAnswer = "";
+
+    DatabaseReference databaseReference;
 
     @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+        // Initialize Firebase database reference
+        databaseReference = FirebaseDatabase.getInstance().getReference("QuizQuestions");
+
         ansA = findViewById(R.id.ansA);
         ansB = findViewById(R.id.ansB);
         ansC = findViewById(R.id.ansC);
@@ -42,13 +55,30 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         ansD.setOnClickListener(this);
         submitBtn.setOnClickListener(this);
 
-        totalQuestionsTextview.setText("Total questions : " + totalQuestion);
-        loadNewQuestion();
+        // Load questions from Firebase
+        loadQuestionsFromFirebase();
     }
 
+    void loadQuestionsFromFirebase() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                totalQuestion = (int) dataSnapshot.getChildrenCount();
+
+                loadNewQuestion();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(QuizActivity.this, "Failed to load questions.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     @Override
     public void onClick(View view) {
+        if (isWaitingForNextQuestion) return;
+
         int blue_light = ContextCompat.getColor(this, R.color.blue_light);
         Button clickedButton = (Button) view;
         if (clickedButton.getId() == R.id.submit_btn) {
@@ -65,11 +95,12 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+
     void checkAnswer() {
         int green = ContextCompat.getColor(this, R.color.green);
         int red = ContextCompat.getColor(this, R.color.red);
 
-        if (selectedAnswer.equals(QuestionAnswer.correctAnswers[currentQuestionIndex])) {
+        if (selectedAnswer.equals(getCorrectOption())) {
             score++;
             changeButtonColor(getSelectedAnswerButton(), green);
         } else {
@@ -79,6 +110,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     void loadNewQuestionWithDelay() {
+        isWaitingForNextQuestion = true;
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -89,6 +121,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 } else {
                     finishQuiz();
                 }
+                isWaitingForNextQuestion = false;
             }
         }, 2000); // 2 seconds delay
     }
@@ -99,11 +132,26 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         ansB = findViewById(R.id.ansB);
         ansC = findViewById(R.id.ansC);
         ansD = findViewById(R.id.ansD);
-        questionTextView.setText((QuestionAnswer.questions[currentQuestionIndex]));
-        ansA.setText(QuestionAnswer.choices[currentQuestionIndex][0]);
-        ansB.setText(QuestionAnswer.choices[currentQuestionIndex][1]);
-        ansC.setText(QuestionAnswer.choices[currentQuestionIndex][2]);
-        ansD.setText(QuestionAnswer.choices[currentQuestionIndex][3]);
+
+        // Get current question from Firebase
+        databaseReference.child("question" + (currentQuestionIndex + 1)).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Question question = dataSnapshot.getValue(Question.class);
+                if (question != null) {
+                    questionTextView.setText(question.getText());
+                    ansA.setText(question.getOptions().get("option1"));
+                    ansB.setText(question.getOptions().get("option2"));
+                    ansC.setText(question.getOptions().get("option3"));
+                    ansD.setText(question.getOptions().get("option4"));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(QuizActivity.this, "Failed to load question.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         resetButtonColors();
     }
@@ -133,13 +181,13 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
     Button getSelectedAnswerButton() {
         switch (selectedAnswer) {
-            case "ansA":
+            case "A":
                 return ansA;
-            case "ansB":
+            case "B":
                 return ansB;
-            case "ansC":
+            case "C":
                 return ansC;
-            case "ansD":
+            case "D":
                 return ansD;
             default:
                 return null;
@@ -147,20 +195,43 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     Button getCorrectAnswerButton() {
-        switch (QuestionAnswer.correctAnswers[currentQuestionIndex]) {
-            case "ansA":
+        switch (getCorrectOption()) {
+            case "A":
                 return ansA;
-            case "ansB":
+            case "B":
                 return ansB;
-
-            case "ansC":
+            case "C":
                 return ansC;
-            case "ansD":
+            case "D":
                 return ansD;
             default:
                 return null;
         }
     }
+
+    String getCorrectOption() {
+        return "option" + getCorrectOptionIndex();
+    }
+
+    int getCorrectOptionIndex() {
+        int correctOptionIndex = -1;
+        switch (selectedAnswer) {
+            case "A":
+                correctOptionIndex = 0;
+                break;
+            case "B":
+                correctOptionIndex = 1;
+                break;
+            case "C":
+                correctOptionIndex = 2;
+                break;
+            case "D":
+                correctOptionIndex = 3;
+                break;
+        }
+        return correctOptionIndex;
+    }
+
     void resetButtonColors() {
         int blue = ContextCompat.getColor(this, R.color.blue);
         ansA.setBackgroundColor(blue);

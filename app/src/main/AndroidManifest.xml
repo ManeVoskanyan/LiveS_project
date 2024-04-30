@@ -81,8 +81,6 @@
             android:name=".MapsDirectionsActivity"
             android:exported="true"></activity>
 
-
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
@@ -90,6 +88,10 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/my_map_api_key" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_DIRECTIONS_KEY"
+            android:value="@string/my_map_directions_api_key" />
 
     </application>
 
