@@ -1,87 +1,111 @@
 package com.example.lives_project;
-
-import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.location.Address;
-import android.location.Geocoder;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
-
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.SearchView;
-import android.widget.Toast;
+public class FullscreenMapActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
 
-import java.io.IOException;
-import java.util.List;
+    private static final int PERMISSION_REQUEST_LOCATION = 1;
+    private static final int ACCURACY_THRESHOLD_METERS = 20;
+    private static final float ZOOM_LEVEL = 17.0f;
 
-public class FullscreenMapActivity extends AppCompatActivity implements OnMapReadyCallback {
+    private GoogleMap mMap;
+    private Circle userCircle;
+    private LocationManager locationManager;
 
-    private GoogleMap myMap;
-    private EditText mapSearchView;
-
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        try {
-            setContentView(R.layout.fullscreen_map_activity);
-            mapSearchView = findViewById(R.id.mapSearch);
-            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map_google);
-            mapSearchView.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                }
+        setContentView(R.layout.fullscreen_map_activity);
 
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 
-                }
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST_LOCATION);
+        } else {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+        }
+    }
 
-                @Override
-                public void afterTextChanged(Editable s) {
-                    String location = s.toString();
-                    List<Address> addressList = null;
-                    Geocoder geocoder = new Geocoder(FullscreenMapActivity.this);
-                    try {
-                        addressList = geocoder.getFromLocationName(location, 1);
-                        if (addressList.isEmpty()) {
-                            return;
-                        }
-                        Address address = addressList.get(0);
-                        LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-                        MarkerOptions options = new MarkerOptions().position(latLng).title(location);
-                        options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
-                        myMap.addMarker(options);
-                        myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 9));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-
-            mapFragment.getMapAsync(FullscreenMapActivity.this);
-        } catch (Exception e) {
-            e.printStackTrace();
+    @SuppressLint("MissingPermission")
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_REQUEST_LOCATION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+            } else {
+                Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
     @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
-        myMap = googleMap;
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+        }
     }
 
-}
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+        LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
+        if (location.hasAccuracy() && location.getAccuracy() <= ACCURACY_THRESHOLD_METERS) {
+            if (userCircle == null) {
+                CircleOptions circleOptions = new CircleOptions()
+                        .center(currentLocation)
+                        .radius(location.getAccuracy())
+                        .strokeWidth(1)
+                        .strokeColor(Color.BLUE)
+                        .fillColor(Color.parseColor("#500084d3"));
+                userCircle = mMap.addCircle(circleOptions);
+            } else {
+                userCircle.remove();
+            }
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, ZOOM_LEVEL));
+        }
+    }
 
+    @Override
+    public void onProviderDisabled(@NonNull String provider) {}
+
+    @Override
+    public void onProviderEnabled(@NonNull String provider) {}
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {}
+
+    public void returnToMyLocation(View view) {
+        if (mMap != null) {
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                if (lastKnownLocation != null) {
+                    LatLng currentLocation = new LatLng(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude());
+                    mMap.animateCamera(CameraUpdateFactory.newLatLng(currentLocation));
+                }
+            }
+        }
+    }
+}
