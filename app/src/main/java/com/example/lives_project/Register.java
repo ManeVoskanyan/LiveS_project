@@ -28,8 +28,7 @@ public class Register extends AppCompatActivity {
     EditText usernameEditText;
     EditText emailEditText;
     EditText passwordEditText;
-
-
+    EditText confirmPasswordEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +40,20 @@ public class Register extends AppCompatActivity {
         usernameEditText = findViewById(R.id.username);
         emailEditText = findViewById(R.id.gmail);
         passwordEditText = findViewById(R.id.password);
+        confirmPasswordEditText = findViewById(R.id.confirm_password);
         error = findViewById(R.id.error);
-
     }
 
     public void signUp(View v) {
         final String username = usernameEditText.getText().toString();
         String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
+        String confirmPassword = confirmPasswordEditText.getText().toString();
+
+        if (!password.equals(confirmPassword)) {
+            error.setText("Passwords do not match");
+            return;
+        }
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -71,18 +76,14 @@ public class Register extends AppCompatActivity {
                                             }
                                         });
                             }
-
-
                             sendEmailVerification(user);
                         } else {
-
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             error.setText("Authentication failed: " + task.getException().getMessage());
                         }
                     }
                 });
     }
-
 
     private void sendEmailVerification(FirebaseUser user) {
         user.sendEmailVerification()

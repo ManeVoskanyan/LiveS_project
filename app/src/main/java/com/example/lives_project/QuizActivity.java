@@ -215,17 +215,17 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
     int getCorrectOptionIndex() {
         int correctOptionIndex = -1;
-        switch (selectedAnswer) {
-            case "A":
+        switch (getCorrectOption()) {
+            case "option1":
                 correctOptionIndex = 0;
                 break;
-            case "B":
+            case "option2":
                 correctOptionIndex = 1;
                 break;
-            case "C":
+            case "option3":
                 correctOptionIndex = 2;
                 break;
-            case "D":
+            case "option4":
                 correctOptionIndex = 3;
                 break;
         }
