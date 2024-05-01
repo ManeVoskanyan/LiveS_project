@@ -250,19 +250,17 @@ public class BottomMenuFragment extends Fragment {
         return file.getPath();
     }
 
-    private int recordingCounter = 1;
 
     private void saveRecordingToFirebase(String filePath) {
         Uri fileUri = Uri.fromFile(new File(filePath));
 
-        String fileName = "Recording_" + recordingCounter + ".mp3";
+        String fileName = "Recording_" + System.currentTimeMillis() + ".mp3";
 
         StorageReference fileRef = storageReference.child(fileName);
 
         fileRef.putFile(fileUri)
                 .addOnSuccessListener(taskSnapshot -> {
                     Toast.makeText(getContext(), "Recording saved to Firebase", Toast.LENGTH_SHORT).show();
-                    recordingCounter++;
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(getContext(), "Error saving recording to Firebase", Toast.LENGTH_SHORT).show();
