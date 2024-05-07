@@ -1,5 +1,6 @@
 package com.example.lives_project;
 
+import android.util.Log;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -55,7 +56,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         ansD.setOnClickListener(this);
         submitBtn.setOnClickListener(this);
 
-        // Load questions from Firebase
         loadQuestionsFromFirebase();
     }
 
@@ -100,11 +100,17 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         int green = ContextCompat.getColor(this, R.color.green);
         int red = ContextCompat.getColor(this, R.color.red);
 
+        Button selectedButton = getSelectedAnswerButton();
+        if (selectedButton == null) {
+            Log.e("QuizActivity", "Selected answer button is null");
+            return;
+        }
+
         if (selectedAnswer.equals(getCorrectOption())) {
             score++;
-            changeButtonColor(getSelectedAnswerButton(), green);
+            changeButtonColor(selectedButton, green);
         } else {
-            changeButtonColor(getSelectedAnswerButton(), red);
+            changeButtonColor(selectedButton, red);
             changeButtonColor(getCorrectAnswerButton(), green);
         }
     }
@@ -209,27 +215,29 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    String getCorrectOption() {
-        return "option" + getCorrectOptionIndex();
+    int getCorrectOptionIndex() {
+        String correctOption = getCorrectOption();
+        switch (correctOption) {
+            case "option1":
+                return 0;
+            case "option2":
+                return 1;
+            case "option3":
+                return 2;
+            case "option4":
+                return 3;
+            default:
+                return -1;
+        }
     }
 
-    int getCorrectOptionIndex() {
-        int correctOptionIndex = -1;
-        switch (getCorrectOption()) {
-            case "option1":
-                correctOptionIndex = 0;
-                break;
-            case "option2":
-                correctOptionIndex = 1;
-                break;
-            case "option3":
-                correctOptionIndex = 2;
-                break;
-            case "option4":
-                correctOptionIndex = 3;
-                break;
+    String getCorrectOption() {
+        int correctIndex = getCorrectOptionIndex();
+        if (correctIndex >= 0 && correctIndex < 4) {
+            return "option" + (correctIndex + 1);
+        } else {
+            return ""; // Вернуть пустую строку или другое значение по умолчанию
         }
-        return correctOptionIndex;
     }
 
     void resetButtonColors() {

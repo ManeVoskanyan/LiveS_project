@@ -18,11 +18,11 @@
         android:background="@color/sky_blue">
 
         <TextView
+            android:id="@+id/dogs_start_lesson1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:text="Don't try to calm the dog down and don't smile. Animals don't perceive smiles the same way humans do. If a smile means friendliness for a person, for a dog, it's a snarl that provokes it to fight. Don't make eye contact with the dog and avoid making sudden movements. It's best to ignore it, then it will calm down and lose interest in you. In other words, the more you show your fear and wave your arms, the more likely it is to attack you. Locking eyes with the dog can make it more aggressive and provoke an attack. It's best to keep the dog in your field of vision but avoid staring into its eyes. This will signal that you're not a threat and you can be left alone."/>
-
+           />
 
         <ImageView
             android:layout_width="match_parent"
@@ -34,11 +34,10 @@
 
 
         <TextView
+            android:id="@+id/dogs_start_lesson2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusableInTouchMode="true"
-            android:text="Clench your fists. No, not for fighting. Clenching your fists is necessary to protect your fingers from being bitten. Even if the dog bites your fist, it will be much easier to pull it out of its mouth. Distract the dog with another object. If you have something in your hands, throw it away from yourself. Anything will do here: a water bottle, a bag, and so on. If you have nothing to throw, pretend to pick something up from the ground and toss it away from yourself. After all, dogs love to play. Understood? If you distract the dog, you get a chance to quietly slip away.
-Command the dog to back off If the dog continues to threaten, you have no choice but to respond in kind. Firmly say no or back off in a commanding voice. Strive to speak confidently and assertively. If your words sound like baby talk, which is understandable in such situations, the dog will pick up on it, and you'll be in even greater danger. But what if you couldn't avoid the attack?"
             android:textSize="25dp" />
 
 
@@ -51,10 +50,10 @@ Command the dog to back off If the dog continues to threaten, you have no choice
             app:srcCompat="@drawable/man_dog_image"/>
 
         <TextView
+            android:id="@+id/dogs_start_lesson3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusableInTouchMode="true"
-            android:text="Part 2: How to defend yourself. Fight back. If peace is not an option and the dog starts biting, you need to do everything to protect yourself. Try to hit the dog on the nose, throat, or back of the head. A good blow may give you time to escape. Call for help. If possible, ask passersby for help, but don't raise your voice. Don't shout at the dog, even if you feel like you have no other choice. For the dog, shouting is a sign of aggression that will only further enrage it. Try to speak quietly and calmly. Don't resort to hitting the dog with a stick or spraying pepper spray. Firstly, the wind might disrupt your plans, and the caustic substance might end up in your eyes rather than the animal's."
             android:textSize="25dp" />
 
         <ImageView
@@ -66,11 +65,10 @@ Command the dog to back off If the dog continues to threaten, you have no choice
             app:srcCompat="@drawable/man_dog_image"/>
 
         <TextView
+            android:id="@+id/dogs_start_lesson4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusableInTouchMode="true"
-            android:text="Secondly, such actions will not deter the dog; instead, they'll likely further enrage it. Even a friendly dog won't appreciate someone waving their arms or, worse, a stick around it. And remember the cardinal rule when dealing with an aggressive dog: never turn your back to it. It's best to walk away from the dog sideways. This way, you can keep an eye on its behavior. And don't run. That will only trigger its hunting instincts. And if the dog starts chasing you, chances are you won't outrun it. Dogs sort even faster than Usain Bolt. Dogs can kill; you must understand that.
-So there's no need to hesitate to call for help. What to do if a dog attacks you? Animals always attack for a specific reason, but this reason isn't always obvious. For example, a dog may attack if it's hungry or if it's defending its puppies or territory. If, despite your desire to quietly walk away, the dog still attacks you, remember the following rules of conduct.  If you have an ultrasonic repellent, use it. This device emits ultrasonic waves that you can't hear, unlike dogs. This sound irritates the animal's sensitive hearing, so perhaps you'll be lucky, and the dog will run away on its own."
             android:textSize="25dp" />
 
         <ImageView
@@ -82,11 +80,10 @@ So there's no need to hesitate to call for help. What to do if a dog attacks you
             app:srcCompat="@drawable/man_dog_image"/>
 
         <TextView
+            android:id="@+id/dogs_start_lesson5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusableInTouchMode="true"
-            android:text="
-If the dog is charging at you, try to cover its head with your jacket or sweater as soon as it comes within your reach. While it's dealing with your clothing, make your escape. It's best to hide behind something, like a tree, table, car, or your neighbor. Well, maybe the neighbor isn't the best example. If possible, climb a tree. Dogs can't climb trees. Just watch out for angry squirrels. If you don't have outerwear, throw your bag or any other object aside. This might distract the dog. That way, the animal will initially react to the object, giving you time to escape."
             android:textSize="25dp" />
 
         <Button
@@ -123,7 +120,6 @@ If the dog is charging at you, try to cover its head with your jacket or sweater
             android:layout_marginTop="-50dp"/>
 
         <TextView
-            android:id="@+id/dogs_start_lesson5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusableInTouchMode="true"

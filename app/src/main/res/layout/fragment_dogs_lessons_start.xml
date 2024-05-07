@@ -24,19 +24,6 @@
             android:layout_height="wrap_content"
             android:focusableInTouchMode="true" />
 
-        <TextView
-            android:id="@+id/dogs_start_lesson2"
-            android:textSize="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusableInTouchMode="true" />
-
-        <TextView
-            android:id="@+id/dogs_start_lesson3"
-            android:textSize="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusableInTouchMode="true" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -47,7 +34,7 @@
             app:srcCompat="@drawable/man_dog_image"/>
 
         <TextView
-            android:id="@+id/dogs_start_lesson4"
+            android:id="@+id/dogs_start_lesson2"
             android:textSize="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -63,6 +50,7 @@
 
 
         <TextView
+            android:id="@+id/dogs_start_lesson3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusableInTouchMode="true"

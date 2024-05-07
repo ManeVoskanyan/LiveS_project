@@ -28,7 +28,9 @@ public class Register extends AppCompatActivity {
     EditText usernameEditText;
     EditText emailEditText;
     EditText passwordEditText;
-    EditText confirmPasswordEditText;
+
+
+    private EditText confirmPasswordEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +42,7 @@ public class Register extends AppCompatActivity {
         usernameEditText = findViewById(R.id.username);
         emailEditText = findViewById(R.id.gmail);
         passwordEditText = findViewById(R.id.password);
-        confirmPasswordEditText = findViewById(R.id.confirm_password);
+        confirmPasswordEditText = findViewById(R.id.confirm_password); // Add this line
         error = findViewById(R.id.error);
     }
 
@@ -48,10 +50,10 @@ public class Register extends AppCompatActivity {
         final String username = usernameEditText.getText().toString();
         String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
-        String confirmPassword = confirmPasswordEditText.getText().toString();
+        String confirmPassword = confirmPasswordEditText.getText().toString(); // Retrieve confirm password
 
         if (!password.equals(confirmPassword)) {
-            error.setText("Passwords do not match");
+            error.setText("Passwords don't match");
             return;
         }
 
@@ -76,6 +78,7 @@ public class Register extends AppCompatActivity {
                                             }
                                         });
                             }
+
                             sendEmailVerification(user);
                         } else {
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());

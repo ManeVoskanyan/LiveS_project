@@ -38,9 +38,7 @@ public class DogsLessonsStartFragment extends Fragment {
                 onPageTurner1BtnClick();
             }
         });
-
-        // Получение данных для каждого урока
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 3; i++) {
             getLessonData(i, view);
         }
 
@@ -66,7 +64,6 @@ public class DogsLessonsStartFragment extends Fragment {
                         case 3:
                             lessonTextView = view.findViewById(R.id.dogs_start_lesson3);
                             break;
-                        // Добавь другие случаи для остальных уроков, если необходимо
                     }
 
                     if (lessonTextView != null) {
@@ -79,11 +76,10 @@ public class DogsLessonsStartFragment extends Fragment {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Ошибка при получении данных
+
             }
         });
     }
-
 
 
     public void onPageTurner1BtnClick() {

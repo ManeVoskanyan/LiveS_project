@@ -12,8 +12,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class DogsLessons4Fragment extends Fragment {
+
+    private DatabaseReference mDatabase;
 //    private OnEndBtnClickListener onEndBtnClickListener;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,12 +38,16 @@ public class DogsLessons4Fragment extends Fragment {
 //                }
 //            }
 //        });
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         page_turner2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onPageTurner2BtnClick();
             }
         });
+        for (int i = 12; i <= 15; i++) {
+            getLessonData(i, view);
+        }
         return view;
     }
     public void onPageTurner2BtnClick() {
@@ -51,5 +64,46 @@ public class DogsLessons4Fragment extends Fragment {
 //    public void setOnEndBtnClickListener ( OnEndBtnClickListener onEndBtnClickListener ){
 //        this.onEndBtnClickListener = onEndBtnClickListener;
 //    }
+
+
+
+    private void getLessonData(int lessonNumber, View view) {
+        String lessonKey = "DogsLessons" + lessonNumber;
+        mDatabase.child(lessonKey).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    String lessonText = dataSnapshot.getValue(String.class);
+                    TextView lessonTextView = null;
+
+                    switch (lessonNumber) {
+                        case 12:
+                            lessonTextView = view.findViewById(R.id.dogs_start_lesson1);
+                            break;
+                        case 13:
+                            lessonTextView = view.findViewById(R.id.dogs_start_lesson2);
+                            break;
+                        case 14:
+                            lessonTextView = view.findViewById(R.id.dogs_start_lesson3);
+                            break;
+                        case 15:
+                            lessonTextView = view.findViewById(R.id.dogs_start_lesson4);
+                            break;
+                    }
+
+                    if (lessonTextView != null) {
+                        lessonTextView.setText(lessonText);
+                    }
+                } else {
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
 
 }

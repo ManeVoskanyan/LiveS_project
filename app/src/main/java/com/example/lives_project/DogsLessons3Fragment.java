@@ -11,14 +11,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class DogsLessons3Fragment extends Fragment {
+    private DatabaseReference mDatabase;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_dogs_lessons3, container, false);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button page_turner1 = view.findViewById(R.id.page_turner1);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button page_turner2 = view.findViewById(R.id.page_turner2);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         page_turner2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,6 +40,11 @@ public class DogsLessons3Fragment extends Fragment {
                 onPageTurner1BtnClick();
             }
         });
+
+        for (int i = 7; i <= 11; i++) {
+            getLessonData(i, view);
+        }
+
         return view;
     }
     public void onPageTurner1BtnClick() {
@@ -49,4 +63,48 @@ public class DogsLessons3Fragment extends Fragment {
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+
+    private void getLessonData(int lessonNumber, View view) {
+        String lessonKey = "DogsLessons" + lessonNumber;
+        mDatabase.child(lessonKey).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    String lessonText = dataSnapshot.getValue(String.class);
+                    TextView lessonTextView = null;
+
+                    switch (lessonNumber) {
+                        case 7:
+                            lessonTextView = view.findViewById(R.id.dogs_start_lesson1);
+                            break;
+                        case 8:
+                            lessonTextView = view.findViewById(R.id.dogs_start_lesson2);
+                            break;
+                        case 9:
+                            lessonTextView = view.findViewById(R.id.dogs_start_lesson3);
+                            break;
+                        case 10:
+                            lessonTextView = view.findViewById(R.id.dogs_start_lesson4);
+                            break;
+                        case 11:
+                            lessonTextView = view.findViewById(R.id.dogs_start_lesson5);
+                            break;
+                    }
+
+                    if (lessonTextView != null) {
+                        lessonTextView.setText(lessonText);
+                    }
+                } else {
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+
 }
