@@ -54,7 +54,7 @@ public class BottomMenuFragment extends Fragment {
 
     TextView help_text;
     Button send;
-    private List<String> phoneNumbers = new ArrayList<>();
+
     private LocationManager locationManager;
     private double latitude, longitude;
 
@@ -110,15 +110,11 @@ public class BottomMenuFragment extends Fragment {
             requestPermissions(new String[]{Manifest.permission.SEND_SMS}, SEND_SMS_PERMISSION_REQUEST_CODE);
         }
 
-        // Запрос разрешения на местоположение
         if (checkPermissions(Manifest.permission.ACCESS_FINE_LOCATION)) {
             getLocation();
         } else {
             requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
         }
-
-        // Загрузка номеров из SharedPreferences
-        loadNumbersFromSharedPreferences();
         return view;
     }
 
@@ -137,18 +133,18 @@ public class BottomMenuFragment extends Fragment {
         }
     }
 
-    private void loadNumbersFromSharedPreferences() {
+
+    public void onSend(View view) {
+
+        List<String> phoneNumbers = new ArrayList<>();
         SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String phoneNumber1 = sharedPreferences.getString("phoneNumber1", "");
         String phoneNumber2 = sharedPreferences.getString("phoneNumber2", "");
-        String phoneNumber3 = sharedPreferences.getString("phoneNumber3", "");
-        phoneNumbers.clear();
+        String phoneNumber3 = sharedPreferences.getString("phoneNumber3", "");;
         if (!phoneNumber1.isEmpty()) phoneNumbers.add(phoneNumber1);
         if (!phoneNumber2.isEmpty()) phoneNumbers.add(phoneNumber2);
         if (!phoneNumber3.isEmpty()) phoneNumbers.add(phoneNumber3);
-    }
 
-    public void onSend(View view) {
         Button stopButton = getView().findViewById(R.id.stop_button);
         stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -198,14 +194,6 @@ public class BottomMenuFragment extends Fragment {
             } else {
                 Toast.makeText(getContext(), "Location permission denied", Toast.LENGTH_SHORT).show();
             }
-        }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && resultCode == RESULT_OK) {
-            loadNumbersFromSharedPreferences();
         }
     }
 

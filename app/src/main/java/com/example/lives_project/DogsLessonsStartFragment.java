@@ -74,6 +74,7 @@ public class DogsLessonsStartFragment extends Fragment {
                 }
             }
 
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 

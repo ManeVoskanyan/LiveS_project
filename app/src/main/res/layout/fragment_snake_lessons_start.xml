@@ -18,28 +18,11 @@
         android:background="@color/sky_blue">
 
         <TextView
-            android:id="@+id/dogs_start_lesson1"
+            android:id="@+id/snakes_start_lesson1"
             android:textSize="18dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:focusableInTouchMode="true"
-            android:text="@string/first_lesson_start1"/>
-
-        <TextView
-            android:id="@+id/dogs_start_lesson2"
-            android:textSize="18dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusableInTouchMode="true"
-            android:text="@string/first_lesson_start3" />
-
-        <TextView
-            android:id="@+id/dogs_start_lesson3"
-            android:textSize="18dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusableInTouchMode="true"
-            android:text="@string/first_lesson_start2" />
+            android:focusableInTouchMode="true" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -50,13 +33,27 @@
             app:srcCompat="@drawable/man_dog_image"/>
 
         <TextView
-            android:id="@+id/dogs_start_lesson4"
+            android:id="@+id/snakes_start_lesson2"
             android:textSize="18dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:focusableInTouchMode="true" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            android:text="What to do in case of a dog attack? Picture this scenario: you're enjoying a morning run in the park when suddenly you’re approached by a stray dog showing clear signs of aggression. What should you do in such situation? Is it advisable to attempt escape or is engaging in a physical altercation a better option? Or perhaps simply offering the dog a treat would be sufficient?
-Here you'll find expert advice on effectively handling a dog attack and taking appropriate actions if it occurs. Who's at risk? Runners, cyclists, and other fast-moving individuals are most vulnerable. Dogs react to motion, triggering their instinct to chase. Additionally, dogs often perceive certain areas as their territory." />
+            app:srcCompat="@drawable/man_dog_image"/>
+
+        <TextView
+            android:id="@+id/snakes_start_lesson3"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true" />
+
 
         <Button
             android:id="@+id/page_turner1"

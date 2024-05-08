@@ -46,8 +46,6 @@ public class NumbersActivity extends AppCompatActivity {
             editor.putString("phoneNumber3", number3.getText().toString().trim());
             editor.apply();
             Toast.makeText(NumbersActivity.this, "Numbers saved successfully", Toast.LENGTH_SHORT).show();
-            Intent resultIntent = new Intent();
-            setResult(Activity.RESULT_OK, resultIntent);
             finish();
         } catch (Exception e) {
             e.printStackTrace();

@@ -17,16 +17,56 @@
         android:layout_marginTop="10dp"
         android:background="@color/sky_blue">
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/snakes_start_lesson1"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:text="hnnnnnhhhhhhhhhhhhhhhhhfhdhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-              hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-              jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
-         jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjhhhhhhhhhhhhhhhhhhhhhhhhhh
-fggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
-ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
-jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjgggggggg"/>
+            android:focusableInTouchMode="true" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:focusableInTouchMode="true"
+            app:srcCompat="@drawable/man_dog_image"/>
+
+        <TextView
+            android:id="@+id/snakes_start_lesson2"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:focusableInTouchMode="true"
+            app:srcCompat="@drawable/man_dog_image"/>
+
+        <TextView
+            android:id="@+id/snakes_start_lesson3"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:focusableInTouchMode="true"
+            app:srcCompat="@drawable/man_dog_image"/>
+
+        <TextView
+            android:id="@+id/snakes_start_lesson4"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true" />
 
         <Button
             android:id="@+id/page_turner1"
