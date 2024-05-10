@@ -176,7 +176,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         startActivityForResult(intent, 4);
     }
 
-
     public void showSignOutDialog(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Are you sure you want to sign out?")

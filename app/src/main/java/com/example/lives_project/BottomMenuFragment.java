@@ -65,6 +65,7 @@ public class BottomMenuFragment extends Fragment {
         ImageView home_image = view.findViewById(R.id.home_image);
         ImageView lessonsImage = view.findViewById(R.id.lessons_image);
         ImageView compass_image = view.findViewById(R.id.compass_image);
+        ImageView settings_image = view.findViewById(R.id.settings_image);
         Button stopButton = view.findViewById(R.id.stop_button);
         stopButton.setVisibility(View.INVISIBLE);
         storageReference = FirebaseStorage.getInstance().getReference().child("recordings");
@@ -72,6 +73,14 @@ public class BottomMenuFragment extends Fragment {
         if (isMicrophonePresent()) {
             getMicrophonePermission();
         }
+        settings_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SettingsActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+            }
+        });
         compass_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
