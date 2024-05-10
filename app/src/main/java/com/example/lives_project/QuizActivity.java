@@ -11,6 +11,8 @@ import android.os.Handler;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +28,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     Button submitBtn;
     Button lastSelectedButton;
     boolean isWaitingForNextQuestion = false;
+    LottieAnimationView loading_animation;
+
+    TextView  question;
 
     int score = 0;
     int totalQuestion = 0;
@@ -47,6 +52,19 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         ansD = findViewById(R.id.ansD);
         submitBtn = findViewById(R.id.submit_btn);
         totalQuestionsTextview = findViewById(R.id.total_questions);
+        loading_animation = findViewById(R.id.lottie_loading);
+        question = findViewById(R.id.question);
+
+
+        ansA.setVisibility(View.INVISIBLE);
+        ansB.setVisibility(View.INVISIBLE);
+        ansC.setVisibility(View.INVISIBLE);
+        ansD.setVisibility(View.INVISIBLE);
+        question.setVisibility(View.INVISIBLE);
+        submitBtn.setVisibility(View.INVISIBLE);
+        totalQuestionsTextview.setVisibility(View.INVISIBLE);
+        loading_animation.setVisibility(View.VISIBLE);
+
 
         ansA.setOnClickListener(this);
         ansB.setOnClickListener(this);
@@ -63,11 +81,21 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             public void onDataChange(DataSnapshot dataSnapshot) {
                 totalQuestion = (int) dataSnapshot.getChildrenCount();
 
+                ansA.setVisibility(View.VISIBLE);
+                ansB.setVisibility(View.VISIBLE);
+                ansC.setVisibility(View.VISIBLE);
+                ansD.setVisibility(View.VISIBLE);
+                submitBtn.setVisibility(View.VISIBLE);
+                totalQuestionsTextview.setVisibility(View.VISIBLE);
+                question.setVisibility(View.VISIBLE);
+                loading_animation.setVisibility(View.INVISIBLE);
+
                 loadNewQuestion();
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+                loading_animation.setVisibility(View.VISIBLE);
                 Toast.makeText(QuizActivity.this, "Failed to load questions.", Toast.LENGTH_SHORT).show();
             }
         });
@@ -143,7 +171,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         ansB = findViewById(R.id.ansB);
         ansC = findViewById(R.id.ansC);
         ansD = findViewById(R.id.ansD);
-        selectedAnswer = ""; // или selectedAnswer = null;
+        selectedAnswer = "";
 
         DatabaseReference currentQuestionRef = databaseReference.child("question" + (currentQuestionIndex + 1));
         currentQuestionRef.addListenerForSingleValueEvent(new ValueEventListener() {

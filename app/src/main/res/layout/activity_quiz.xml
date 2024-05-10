@@ -7,6 +7,15 @@
     android:layout_margin="10dp"
     tools:context=".MainActivity">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_loading"
+        android:layout_width="225dp"
+        android:layout_height="262dp"
+        android:layout_centerInParent="true"
+        android:elevation="5dp"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/loading_animation" />
+
     <TextView
         android:id="@+id/total_questions"
         android:layout_width="352dp"
