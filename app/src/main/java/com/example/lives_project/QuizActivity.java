@@ -143,8 +143,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         ansB = findViewById(R.id.ansB);
         ansC = findViewById(R.id.ansC);
         ansD = findViewById(R.id.ansD);
-
-        // Сброс выбранного ответа перед загрузкой нового вопроса
         selectedAnswer = ""; // или selectedAnswer = null;
 
         DatabaseReference currentQuestionRef = databaseReference.child("question" + (currentQuestionIndex + 1));
@@ -159,12 +157,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                     ansC.setText(question.getOptions().get("option3"));
                     ansD.setText(question.getOptions().get("option4"));
 
-                    // Get correct option text asynchronously
                     String correctOptionText = question.getCorrectOption();
-                    checkAnswer(correctOptionText); // Проверка ответа после получения данных
-
-                    // Сброс цветов кнопок после загрузки нового вопроса
                     resetButtonColors();
+                    lastSelectedButton = null;
                 }
             }
 
@@ -174,6 +169,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
+
 
 
 
@@ -247,6 +243,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                     String correctOption = question.getCorrectOption();
                     if (correctOption != null && !correctOption.isEmpty()) {
                         correctOptionText[0] = correctOption;
+                        checkAnswer(correctOptionText[0]);
                     }
                 }
             }
@@ -269,4 +266,3 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         ansD.setBackgroundColor(blue);
     }
 }
-
