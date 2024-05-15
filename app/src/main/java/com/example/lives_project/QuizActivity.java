@@ -1,22 +1,22 @@
 package com.example.lives_project;
 
-import android.util.Log;
-import android.view.View;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import com.airbnb.lottie.LottieAnimationView;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
@@ -28,18 +28,19 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     Button submitBtn;
     Button lastSelectedButton;
     boolean isWaitingForNextQuestion = false;
+    boolean isDataLoaded = false;
     LottieAnimationView loading_animation;
 
-    TextView  question;
+    TextView question;
 
     int score = 0;
     int totalQuestion = 0;
     int currentQuestionIndex = 0;
     String selectedAnswer = "";
+    String correctOption = "";
 
     DatabaseReference databaseReference;
 
-    @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +56,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         loading_animation = findViewById(R.id.lottie_loading);
         question = findViewById(R.id.question);
 
-
         ansA.setVisibility(View.INVISIBLE);
         ansB.setVisibility(View.INVISIBLE);
         ansC.setVisibility(View.INVISIBLE);
@@ -64,7 +64,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         submitBtn.setVisibility(View.INVISIBLE);
         totalQuestionsTextview.setVisibility(View.INVISIBLE);
         loading_animation.setVisibility(View.VISIBLE);
-
 
         ansA.setOnClickListener(this);
         ansB.setOnClickListener(this);
@@ -109,18 +108,19 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         Button clickedButton = (Button) view;
         try {
             if (clickedButton.getId() == R.id.submit_btn) {
-                String correctOptionText = getCorrectOptionText();
-                checkAnswer(correctOptionText);
-                loadNewQuestionWithDelay();
-            } else {
-                selectedAnswer = clickedButton.getText().toString();
-                if (clickedButton != submitBtn) {
-                    changeButtonColor(clickedButton, blue_light);
-                    if (lastSelectedButton != null && lastSelectedButton != clickedButton) {
-                        resetButtonColor(lastSelectedButton);
-                    }
-                    lastSelectedButton = clickedButton;
+                if (isDataLoaded) {
+                    checkAnswer();
+                    loadNewQuestionWithDelay();
+                } else {
+                    Toast.makeText(QuizActivity.this, "Please wait, data is loading.", Toast.LENGTH_SHORT).show();
                 }
+            } else {
+                selectedAnswer = getSelectedAnswer(clickedButton);
+                changeButtonColor(clickedButton, blue_light);
+                if (lastSelectedButton != null && lastSelectedButton != clickedButton) {
+                    resetButtonColor(lastSelectedButton);
+                }
+                lastSelectedButton = clickedButton;
             }
         } catch (Exception e) {
             Log.e("QuizActivity", "An error occurred in onClick()", e);
@@ -128,8 +128,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-
-    void checkAnswer(String correctOptionText) {
+    void checkAnswer() {
         int green = ContextCompat.getColor(this, R.color.green);
         int red = ContextCompat.getColor(this, R.color.red);
 
@@ -139,7 +138,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        if (selectedAnswer.equals(correctOptionText)) {
+        if (selectedAnswer.equals(correctOption)) {
             score++;
             changeButtonColor(selectedButton, green);
         } else {
@@ -162,10 +161,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 isWaitingForNextQuestion = false;
             }
-        }, 2000); // 2 seconds delay
+        }, 2000);
     }
 
     void loadNewQuestion() {
+        isDataLoaded = false;
         questionTextView = findViewById(R.id.question);
         ansA = findViewById(R.id.ansA);
         ansB = findViewById(R.id.ansB);
@@ -180,14 +180,15 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 Question question = dataSnapshot.getValue(Question.class);
                 if (question != null) {
                     questionTextView.setText(question.getText());
-                    ansA.setText(question.getOptions().get("option1"));
-                    ansB.setText(question.getOptions().get("option2"));
-                    ansC.setText(question.getOptions().get("option3"));
-                    ansD.setText(question.getOptions().get("option4"));
+                    ansA.setText(question.getOptions().get("A"));
+                    ansB.setText(question.getOptions().get("B"));
+                    ansC.setText(question.getOptions().get("C"));
+                    ansD.setText(question.getOptions().get("D"));
 
-                    String correctOptionText = question.getCorrectOption();
+                    correctOption = question.getCorrectOption();
                     resetButtonColors();
                     lastSelectedButton = null;
+                    isDataLoaded = true;
                 }
             }
 
@@ -197,10 +198,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
-
-
-
-
 
     void finishQuiz() {
         String passStatus = (score > totalQuestion * 0.60) ? "Great!" : "Try once more";
@@ -223,7 +220,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-
     void resetButtonColor(Button button) {
         button.setBackgroundColor(ContextCompat.getColor(this, R.color.blue));
     }
@@ -244,8 +240,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     Button getCorrectAnswerButton() {
-        String correctOptionText = getCorrectOptionText();
-        switch (correctOptionText) {
+        switch (correctOption) {
             case "A":
                 return ansA;
             case "B":
@@ -259,32 +254,13 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    String getCorrectOptionText() {
-        final String[] correctOptionText = {""};
-
-        DatabaseReference currentQuestionRef = databaseReference.child("question" + (currentQuestionIndex + 1));
-        currentQuestionRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Question question = dataSnapshot.getValue(Question.class);
-                if (question != null) {
-                    String correctOption = question.getCorrectOption();
-                    if (correctOption != null && !correctOption.isEmpty()) {
-                        correctOptionText[0] = correctOption;
-                        checkAnswer(correctOptionText[0]);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.e("QuizActivity", "Failed to load correct option", databaseError.toException());
-            }
-        });
-
-        return correctOptionText[0];
+    String getSelectedAnswer(Button button) {
+        if (button == ansA) return "A";
+        if (button == ansB) return "B";
+        if (button == ansC) return "C";
+        if (button == ansD) return "D";
+        return "";
     }
-
 
     void resetButtonColors() {
         int blue = ContextCompat.getColor(this, R.color.blue);
