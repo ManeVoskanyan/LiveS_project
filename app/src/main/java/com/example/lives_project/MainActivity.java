@@ -205,4 +205,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         startActivity(intent);
         finish();
     }
+
+    @SuppressLint("MissingSuperCall")
+    public void onBackPressed() {
+
+    }
 }

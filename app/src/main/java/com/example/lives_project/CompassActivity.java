@@ -61,4 +61,9 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
     public void onAccuracyChanged(Sensor sensor, int i) {
 
     }
+
+    @SuppressLint("MissingSuperCall")
+    public void onBackPressed() {
+
+    }
 }

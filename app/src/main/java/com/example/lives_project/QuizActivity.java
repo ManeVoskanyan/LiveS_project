@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,8 +26,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     TextView questionTextView;
     Button ansA, ansB, ansC, ansD;
 
+    ImageView arrow_image;
     Button submitBtn;
     Button lastSelectedButton;
+    Button back_button;
     boolean isWaitingForNextQuestion = false;
     boolean isDataLoaded = false;
     LottieAnimationView loading_animation;
@@ -45,12 +48,15 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
         databaseReference = FirebaseDatabase.getInstance().getReference("QuizQuestions");
 
         ansA = findViewById(R.id.ansA);
         ansB = findViewById(R.id.ansB);
         ansC = findViewById(R.id.ansC);
         ansD = findViewById(R.id.ansD);
+        arrow_image = findViewById(R.id.arrow_image);
+        back_button = findViewById(R.id.prev_question_btn);
         submitBtn = findViewById(R.id.submit_btn);
         totalQuestionsTextview = findViewById(R.id.total_questions);
         loading_animation = findViewById(R.id.lottie_loading);
@@ -60,6 +66,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         ansB.setVisibility(View.INVISIBLE);
         ansC.setVisibility(View.INVISIBLE);
         ansD.setVisibility(View.INVISIBLE);
+        back_button.setVisibility(View.INVISIBLE);
+        arrow_image.setVisibility(View.INVISIBLE);
         question.setVisibility(View.INVISIBLE);
         submitBtn.setVisibility(View.INVISIBLE);
         totalQuestionsTextview.setVisibility(View.INVISIBLE);
@@ -70,6 +78,15 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         ansC.setOnClickListener(this);
         ansD.setOnClickListener(this);
         submitBtn.setOnClickListener(this);
+
+        Button prevQuestionBtn = findViewById(R.id.prev_question_btn);
+        prevQuestionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPreviousQuestion();
+            }
+        });
+
 
         loadQuestionsFromFirebase();
     }
@@ -84,6 +101,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 ansB.setVisibility(View.VISIBLE);
                 ansC.setVisibility(View.VISIBLE);
                 ansD.setVisibility(View.VISIBLE);
+                arrow_image.setVisibility(View.VISIBLE);
+                back_button.setVisibility(View.VISIBLE);
                 submitBtn.setVisibility(View.VISIBLE);
                 totalQuestionsTextview.setVisibility(View.VISIBLE);
                 question.setVisibility(View.VISIBLE);
@@ -269,4 +288,28 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         ansC.setBackgroundColor(blue);
         ansD.setBackgroundColor(blue);
     }
+
+    void showPreviousQuestion() {
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            loadNewQuestion();
+        } else {
+            Toast.makeText(QuizActivity.this, "This is the first question", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+//    @Override
+//    protected void onSaveInstanceState(Bundle outState) {
+//        super.onSaveInstanceState(outState);
+//        outState.putInt("currentQuestionIndex", currentQuestionIndex);
+//    }
+//
+//    @Override
+//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+//        super.onRestoreInstanceState(savedInstanceState);
+//        currentQuestionIndex = savedInstanceState.getInt("currentQuestionIndex");
+//        loadNewQuestion();
+//    }
+
+
 }

@@ -25,7 +25,6 @@ public class Earthquakes1Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
       View view = inflater.inflate(R.layout.fragment_earthquakes1, container, false);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button page_turner1 = view.findViewById(R.id.page_turner1);
         mDatabase = FirebaseDatabase.getInstance().getReference();

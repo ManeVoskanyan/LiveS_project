@@ -8,7 +8,7 @@ public class Question {
     private Map<String, String> options;
 
     public Question() {
-        // Пустой конструктор необходим для Firebase
+
     }
 
     public String getText() {

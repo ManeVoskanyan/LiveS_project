@@ -26,7 +26,7 @@
         android:shadowDx="3"
         android:shadowDy="3"
         android:shadowRadius="2"
-        android:text="Chasings"
+        android:text="Stalkings"
         android:textColor="@color/blue"
         android:textSize="60dp" />
 
