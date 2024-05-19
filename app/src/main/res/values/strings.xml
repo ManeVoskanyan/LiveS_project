@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LiveS_project</string>
+    <string name="app_name">LiveS</string>
     <string name="map">Map</string>
     <string name="daily">Daily</string>
     <string name="tasks">tasks</string>

@@ -7,6 +7,7 @@
     android:background="@color/sky_blue"
     tools:context=".MainActivity">
 
+
     <TextView
         android:id="@+id/textview_degree"
         android:layout_width="201dp"
@@ -31,6 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageView
         android:id="@+id/image_compass"
         android:layout_width="match_parent"
@@ -39,10 +41,11 @@
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="43dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="21dp"
         app:srcCompat="@drawable/compass_imaage_main" />
+
 
 
     <FrameLayout

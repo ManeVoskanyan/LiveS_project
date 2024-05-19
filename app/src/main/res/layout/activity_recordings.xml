@@ -2,7 +2,40 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/sky_blue">
+
+
+    <TextView
+        android:id="@+id/recording_text"
+        android:layout_width="332dp"
+        android:layout_height="105dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/changa_one"
+        android:shadowColor="@color/black"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="2"
+        android:text="You don't have audio recordings yet"
+        android:textColor="@color/blue"
+        android:textSize="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.639"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_recording"
+        android:layout_width="190dp"
+        android:layout_height="220dp"
+        android:layout_centerInParent="true"
+        android:elevation="5dp"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/recording_animation" />
+
 
     <ListView
         android:id="@+id/recordingsListView"
@@ -12,15 +45,5 @@
         android:dividerHeight="0dp"
         android:padding="16dp"
         android:clipToPadding="false" />
-
-    <TextView
-        android:id="@+id/emptyTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="No recordings available"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:visibility="gone" />
 
 </RelativeLayout>

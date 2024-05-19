@@ -11,8 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,6 +23,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class DogsLessons3Fragment extends Fragment {
     private DatabaseReference mDatabase;
+    private LottieAnimationView lottie_loading;
+    ImageView image1, image2, image3, image4;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -28,6 +32,16 @@ public class DogsLessons3Fragment extends Fragment {
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button page_turner1 = view.findViewById(R.id.page_turner1);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button page_turner2 = view.findViewById(R.id.page_turner2);
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        lottie_loading = view.findViewById(R.id.lottie_loading);
+        image1 = view.findViewById(R.id.image1);
+        image2 = view.findViewById(R.id.image2);
+        image3 = view.findViewById(R.id.image3);
+        image4 = view.findViewById(R.id.image4);
+        lottie_loading.setVisibility(View.VISIBLE);
+        image1.setVisibility(View.INVISIBLE);
+        image2.setVisibility(View.INVISIBLE);
+        image3.setVisibility(View.INVISIBLE);
+        image4.setVisibility(View.INVISIBLE);
         page_turner2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,6 +111,7 @@ public class DogsLessons3Fragment extends Fragment {
                 } else {
 
                 }
+                checkDataLoaded(view);
             }
 
             @Override
@@ -106,5 +121,19 @@ public class DogsLessons3Fragment extends Fragment {
         });
     }
 
+    private void checkDataLoaded(View view) {
+        TextView lesson1 = view.findViewById(R.id.dogs_start_lesson1);
+        TextView lesson2 = view.findViewById(R.id.dogs_start_lesson2);
+        TextView lesson3 = view.findViewById(R.id.dogs_start_lesson3);
 
+        if (!lesson1.getText().toString().isEmpty() &&
+                !lesson2.getText().toString().isEmpty() &&
+                !lesson3.getText().toString().isEmpty()) {
+            lottie_loading.setVisibility(View.INVISIBLE);
+            image1.setVisibility(View.VISIBLE);
+            image2.setVisibility(View.VISIBLE);
+            image3.setVisibility(View.VISIBLE);
+            image4.setVisibility(View.VISIBLE);
+        }
+    }
 }

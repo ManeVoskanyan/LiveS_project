@@ -1,5 +1,6 @@
 package com.example.lives_project;
 
+import android.annotation.SuppressLint;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,17 +9,18 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,13 +34,21 @@ public class RecordingsActivity extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
     private StorageReference storageReference;
 
+    TextView recording_text;
+    LottieAnimationView recording_lottie;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recordings);
 
         recordingsListView = findViewById(R.id.recordingsListView);
+        recording_lottie = findViewById(R.id.lottie_recording);
+        recording_text = findViewById(R.id.recording_text);
+        recording_lottie.setVisibility(View.INVISIBLE);
+        recording_text.setVisibility(View.INVISIBLE);
+
         recordingNames = new ArrayList<>();
         recordingPaths = new ArrayList<>();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, recordingNames);
@@ -68,7 +78,9 @@ public class RecordingsActivity extends AppCompatActivity {
                 recordingPaths.add(filePath);
             }
             adapter.notifyDataSetChanged();
+            checkIfListViewIsEmpty();
         }).addOnFailureListener(e -> {
+            Log.e("Firebase", "Failed to retrieve recordings", e);
             Toast.makeText(RecordingsActivity.this, "Failed to retrieve recordings", Toast.LENGTH_SHORT).show();
         });
     }
@@ -102,6 +114,15 @@ public class RecordingsActivity extends AppCompatActivity {
         }
     }
 
+    private void checkIfListViewIsEmpty() {
+        if (adapter.isEmpty()) {
+            recording_lottie.setVisibility(View.VISIBLE);
+            recording_text.setVisibility(View.VISIBLE);
+        } else {
+            recording_lottie.setVisibility(View.INVISIBLE);
+            recording_text.setVisibility(View.INVISIBLE);
+        }
+    }
 
     @Override
     protected void onStop() {

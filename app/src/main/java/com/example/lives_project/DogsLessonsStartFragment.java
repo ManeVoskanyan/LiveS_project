@@ -24,7 +24,8 @@ import com.google.firebase.database.ValueEventListener;
 public class DogsLessonsStartFragment extends Fragment {
 
     private DatabaseReference mDatabase;
-    LottieAnimationView lottie_loading;
+    private LottieAnimationView lottie_loading;
+    ImageView image1, image2;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -34,7 +35,12 @@ public class DogsLessonsStartFragment extends Fragment {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         lottie_loading = view.findViewById(R.id.lottie_loading);
-        lottie_loading.setVisibility(View.INVISIBLE);
+        image1 = view.findViewById(R.id.image1);
+        image2 = view.findViewById(R.id.image2);
+        lottie_loading.setVisibility(View.VISIBLE);
+        image1.setVisibility(View.INVISIBLE);
+        image2.setVisibility(View.INVISIBLE);
+
 
         Button page_turner1 = view.findViewById(R.id.page_turner1);
         page_turner1.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +49,7 @@ public class DogsLessonsStartFragment extends Fragment {
                 onPageTurner1BtnClick();
             }
         });
+
         for (int i = 1; i <= 3; i++) {
             getLessonData(i, view);
         }
@@ -75,18 +82,30 @@ public class DogsLessonsStartFragment extends Fragment {
                         lessonTextView.setText(lessonText);
                     }
                 } else {
-
                 }
+                checkDataLoaded(view);
             }
-
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                checkDataLoaded(view);
             }
         });
     }
 
+    private void checkDataLoaded(View view) {
+        TextView lesson1 = view.findViewById(R.id.dogs_start_lesson1);
+        TextView lesson2 = view.findViewById(R.id.dogs_start_lesson2);
+        TextView lesson3 = view.findViewById(R.id.dogs_start_lesson3);
+
+        if (!lesson1.getText().toString().isEmpty() &&
+                !lesson2.getText().toString().isEmpty() &&
+                !lesson3.getText().toString().isEmpty()) {
+            lottie_loading.setVisibility(View.INVISIBLE);
+            image1.setVisibility(View.VISIBLE);
+            image2.setVisibility(View.VISIBLE);
+        }
+    }
 
     public void onPageTurner1BtnClick() {
         DogsLessons2Fragment dogsLessons2Fragment = new DogsLessons2Fragment();

@@ -7,14 +7,33 @@
     android:background="@color/sky_blue">
 
 
+    <ImageView
+        android:layout_width="331dp"
+        android:layout_height="61dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="35dp"
+        app:srcCompat="@drawable/quiz_bacground" />
+
+    <ImageView
+        android:layout_width="311dp"
+        android:layout_height="386dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="188dp"
+        android:layout_marginEnd="41dp"
+        app:srcCompat="@drawable/quiz_bacground" />
+
+
     <TextView
         android:id="@+id/animals_attack_textview"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="61dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="27dp"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
         android:shadowDx="3"
@@ -28,6 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/snakes_textview"
         android:layout_width="86dp"
@@ -35,9 +55,9 @@
         android:layout_below="@+id/animals_attack_textview"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="57dp"
-        android:layout_marginTop="224dp"
-        android:layout_marginEnd="268dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="211dp"
+        android:layout_marginEnd="262dp"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
         android:shadowDx="1"
@@ -59,9 +79,9 @@
         android:layout_below="@+id/animals_attack_textview"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="281dp"
-        android:layout_marginTop="224dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginStart="286dp"
+        android:layout_marginTop="208dp"
+        android:layout_marginEnd="50dp"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
         android:shadowDx="1"
@@ -76,7 +96,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-
     <TextView
         android:id="@+id/bears_textview"
         android:layout_width="89dp"
@@ -84,9 +103,9 @@
         android:layout_below="@+id/animals_attack_textview"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="432dp"
-        android:layout_marginEnd="158dp"
+        android:layout_marginStart="174dp"
+        android:layout_marginTop="419dp"
+        android:layout_marginEnd="147dp"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
         android:shadowDx="1"
@@ -108,9 +127,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="235dp"
+        android:layout_marginStart="234dp"
         android:layout_marginTop="160dp"
-        android:layout_marginEnd="25dp"
+        android:layout_marginEnd="26dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
