@@ -10,7 +10,7 @@
 
     <Button
         android:id="@+id/stop_button"
-        android:layout_width="103dp"
+        android:layout_width="103sp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/main_btn1"
         android:layout_alignParentEnd="true"
@@ -24,8 +24,8 @@
 
     <TextView
         android:id="@+id/massage"
-        android:layout_width="183dp"
-        android:layout_height="45dp"
+        android:layout_width="183sp"
+        android:layout_height="45sp"
         android:layout_above="@+id/main_btn1"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="231dp"
@@ -43,7 +43,7 @@
     <LinearLayout
         android:id="@+id/bottom_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="55sp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="-2dp"
         android:background="@color/blue"
@@ -51,16 +51,16 @@
 
         <ImageView
             android:id="@+id/home_image"
-            android:layout_width="80dp"
-            android:layout_height="45dp"
+            android:layout_width="80sp"
+            android:layout_height="45sp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             app:srcCompat="@drawable/home" />
 
         <ImageView
             android:id="@+id/lessons_image"
-            android:layout_width="80dp"
-            android:layout_height="45dp"
+            android:layout_width="80sp"
+            android:layout_height="45sp"
             android:layout_marginStart="-10dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
@@ -72,8 +72,8 @@
 
         <ImageView
             android:id="@+id/compass_image"
-            android:layout_width="80dp"
-            android:layout_height="45dp"
+            android:layout_width="80sp"
+            android:layout_height="45sp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:layout_marginStart="90dp"
@@ -81,8 +81,8 @@
 
         <ImageView
             android:id="@+id/settings_image"
-            android:layout_width="80dp"
-            android:layout_height="45dp"
+            android:layout_width="80sp"
+            android:layout_height="45sp"
             android:layout_marginStart="-10dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"

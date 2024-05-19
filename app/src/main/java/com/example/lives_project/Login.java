@@ -16,6 +16,13 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Map;
 
 public class Login extends AppCompatActivity {
 
@@ -47,7 +54,7 @@ public class Login extends AppCompatActivity {
             startActivity(new Intent(this, MainActivity.class));
             finish();
         } else {
-            // Continue with your regular flow
+
         }
 
 
@@ -68,6 +75,22 @@ public class Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
                             if (user != null && user.isEmailVerified()) {
+                                String uid = user.getUid();
+                                DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(uid);
+
+                                userRef.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        Map<String, Object> userData = (Map<String, Object>) dataSnapshot.getValue();
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putBoolean("isLoggedIn", true);
@@ -79,7 +102,6 @@ public class Login extends AppCompatActivity {
                                 Toast.makeText(Login.this, "Please verify your email before logging in", Toast.LENGTH_SHORT).show();
                             }
                         } else {
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
                             Toast.makeText(Login.this, "User not found or authentication failed", Toast.LENGTH_SHORT).show();
                         }
                     }

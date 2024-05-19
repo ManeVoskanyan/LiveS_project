@@ -9,16 +9,16 @@
 
     <TextView
         android:id="@+id/first_lives"
-        android:layout_width="246dp"
-        android:layout_height="83dp"
+        android:layout_width="246sp"
+        android:layout_height="83sp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="189dp"
-        android:layout_marginEnd="29dp"
+        android:layout_marginStart="136sp"
+        android:layout_marginTop="189sp"
+        android:layout_marginEnd="29sp"
         android:layout_marginBottom="459dp"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
@@ -31,10 +31,10 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_width="400sp"
+        android:layout_height="400sp"
         android:layout_centerInParent="true"
-        android:elevation="5dp"
+        android:elevation="5sp"
         app:lottie_autoPlay="true"
         app:lottie_rawRes="@raw/first_animation" />
 

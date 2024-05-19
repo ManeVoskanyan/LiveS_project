@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,13 +24,17 @@ import com.google.firebase.database.ValueEventListener;
 public class DogsLessonsStartFragment extends Fragment {
 
     private DatabaseReference mDatabase;
+    LottieAnimationView lottie_loading;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dogs_lessons_start, container, false);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        lottie_loading = view.findViewById(R.id.lottie_loading);
+        lottie_loading.setVisibility(View.INVISIBLE);
 
         Button page_turner1 = view.findViewById(R.id.page_turner1);
         page_turner1.setOnClickListener(new View.OnClickListener() {

@@ -55,8 +55,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="290dp"
-        android:layout_marginTop="-5dp"
+        android:layout_marginStart="290sp"
+        android:layout_marginTop="-5sp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="700dp"
         android:backgroundTint="@color/blue"
@@ -64,8 +64,8 @@
         android:onClick="showSignOutDialog"
         android:text="Sign Out"
         android:textColor="@color/sky_blue"
-        android:textSize="16dp"
-        app:cornerRadius="5dp" />
+        android:textSize="16sp"
+        app:cornerRadius="5sp" />
 
 
 
@@ -82,7 +82,7 @@
         app:srcCompat="@drawable/map1" />
 
     <TextView
-        android:layout_width="104dp"
+        android:layout_width="104sp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/lessons_fragment1_container"
         android:layout_alignParentEnd="true"
@@ -103,8 +103,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/lessons_fragment1_container"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="125dp"
-        android:layout_marginBottom="227dp"
+        android:layout_marginEnd="125sp"
+        android:layout_marginBottom="227sp"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
         android:shadowDx="2"
@@ -119,8 +119,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/lessons_fragment1_container"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="118dp"
-        android:layout_marginBottom="96dp"
+        android:layout_marginEnd="118sp"
+        android:layout_marginBottom="96sp"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
         android:shadowDx="2"
@@ -136,8 +136,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/lessons_fragment1_container"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="116dp"
-        android:layout_marginBottom="163dp"
+        android:layout_marginEnd="116sp"
+        android:layout_marginBottom="163sp"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
         android:shadowDx="2"
@@ -149,20 +149,20 @@
 
     <ImageView
         android:id="@+id/daily_tasks"
-        android:layout_width="90dp"
-        android:layout_height="65dp"
+        android:layout_width="90sp"
+        android:layout_height="65sp"
         android:layout_above="@+id/lessons_fragment1_container"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="300dp"
-        android:layout_marginBottom="221dp"
+        android:layout_marginEnd="300sp"
+        android:layout_marginBottom="221sp"
         android:onClick="openQuizActivity"
         app:srcCompat="@drawable/lamp" />
 
 
     <ImageView
         android:id="@+id/safety_btn"
-        android:layout_width="80dp"
-        android:layout_height="60dp"
+        android:layout_width="80sp"
+        android:layout_height="60sp"
         android:layout_above="@+id/lessons_fragment1_container"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="301dp"
@@ -171,8 +171,8 @@
 
     <ImageView
         android:id="@+id/recordings_image"
-        android:layout_width="80dp"
-        android:layout_height="60dp"
+        android:layout_width="80sp"
+        android:layout_height="60sp"
         android:layout_above="@+id/lessons_fragment1_container"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="303dp"
@@ -182,8 +182,8 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_arrow"
-        android:layout_width="96dp"
-        android:layout_height="83dp"
+        android:layout_width="96sp"
+        android:layout_height="83sp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"

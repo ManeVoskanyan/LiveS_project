@@ -17,6 +17,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Register extends AppCompatActivity {
 
@@ -50,7 +55,7 @@ public class Register extends AppCompatActivity {
         final String username = usernameEditText.getText().toString();
         String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
-        String confirmPassword = confirmPasswordEditText.getText().toString(); // Retrieve confirm password
+        String confirmPassword = confirmPasswordEditText.getText().toString();
 
         if (!password.equals(confirmPassword)) {
             error.setText("Passwords don't match");
@@ -62,26 +67,30 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                    .setDisplayName(username)
-                                    .build();
                             if (user != null) {
+                                String uid = user.getUid();
+                                DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(uid);
+
+                                Map<String, Object> userData = new HashMap<>();
+                                userData.put("username", username);
+                                userData.put("email", email);
+                                userRef.setValue(userData);
+
+                                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                        .setDisplayName(username)
+                                        .build();
                                 user.updateProfile(profileUpdates)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
-                                                    Log.d(TAG, "User profile updated.");
+                                                    sendEmailVerification(user);
                                                 }
                                             }
                                         });
                             }
-
-                            sendEmailVerification(user);
                         } else {
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             error.setText("Authentication failed: " + task.getException().getMessage());
                         }
                     }
@@ -94,11 +103,8 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Log.d(TAG, "Email sent.");
-                            Intent intent = new Intent(Register.this, Login.class);
-                            startActivity(intent);
+                            startActivity(new Intent(Register.this, Login.class));
                         } else {
-                            Log.e(TAG, "sendEmailVerification", task.getException());
                             Toast.makeText(Register.this,
                                     "Failed to send verification email: " + task.getException().getMessage(),
                                     Toast.LENGTH_SHORT).show();

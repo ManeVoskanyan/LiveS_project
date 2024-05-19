@@ -17,6 +17,7 @@
         android:layout_marginTop="10dp"
         android:background="@color/sky_blue">
 
+
         <TextView
             android:id="@+id/dogs_start_lesson1"
             android:textSize="25dp"
@@ -40,10 +41,19 @@
             android:layout_height="wrap_content"
             android:focusableInTouchMode="true"/>
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_loading"
+            android:layout_width="225dp"
+            android:layout_height="262dp"
+            android:layout_centerInParent="true"
+            android:elevation="5dp"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/loading_animation" />
+
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="400sp"
+            android:layout_marginTop="-260sp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
             app:srcCompat="@drawable/girl_dog_run"/>
@@ -62,16 +72,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/blue"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="300dp"/>
+            android:layout_marginTop="15sp"
+            android:layout_marginStart="300sp"/>
 
         <ImageView
             android:id="@+id/right_image"
             android:layout_width="40dp"
             android:layout_height="50dp"
             android:src="@drawable/right"
-            android:layout_marginStart="317dp"
-            android:layout_marginTop="-50dp"/>
+            android:layout_marginStart="317sp"
+            android:layout_marginTop="-50sp"/>
 
 
         <TextView
@@ -83,7 +93,7 @@
             android:textSize="18dp" />
 
 
-
     </LinearLayout>
+
 
 </ScrollView>
