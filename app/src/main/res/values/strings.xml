@@ -24,6 +24,9 @@ This app will help you practice these skills, providing a safe interaction with 
     <string name="my_map_api_key">AIzaSyAC9LWs-NNKZAM6BPECrbM-78s5YK0_zb0</string>
     <string name="my_map_directions_api_key">AIzaSyAONDSB4_iGVo1STwKryTJ2C6qDpUMwFb8</string>
 
+        <string name="shortcut_short_label">Button Action</string>
+    <string name="extra_button_action">extra_button_action</string>
+
 
     <string name="title_activity_send_massage">Leanback SendMassageActivity</string>
     <string name="browse_title">Videos by Your Company</string>

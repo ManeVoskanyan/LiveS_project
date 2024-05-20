@@ -59,6 +59,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (savedInstanceState == null) {
+            BottomMenuFragment bottomMenuFragment = new BottomMenuFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.lessons_fragment1_container, bottomMenuFragment)
+                    .commit();
+        }
+
+      //  handleShortcutIntent(getIntent());
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String phoneNumber1 = sharedPreferences.getString("phoneNumber1", "");
@@ -210,4 +218,23 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onBackPressed() {
 
     }
+
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+    }
+
+  /*  private void handleShortcutIntent(Intent intent) {
+        if (intent != null && intent.hasExtra("extra_button_action")) {
+            boolean performAction = intent.getBooleanExtra("extra_button_action", false);
+            if (performAction) {
+                BottomMenuFragment fragment = (BottomMenuFragment) getSupportFragmentManager().findFragmentById(R.id.lessons_fragment1_container);
+                if (fragment != null) {
+                    fragment.performButtonAction();
+                }
+            }
+        }
+    } */
+
 }
+
