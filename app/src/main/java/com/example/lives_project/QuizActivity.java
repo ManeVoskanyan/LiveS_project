@@ -1,6 +1,7 @@
 package com.example.lives_project;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -50,6 +51,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+        if (savedInstanceState != null) {
+            currentQuestionIndex = savedInstanceState.getInt("currentQuestionIndex");
+        }
 
         databaseReference = FirebaseDatabase.getInstance().getReference("QuizQuestions");
 
@@ -300,18 +305,22 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-//    @Override
-//    protected void onSaveInstanceState(Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//        outState.putInt("currentQuestionIndex", currentQuestionIndex);
-//    }
-//
-//    @Override
-//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-//        super.onRestoreInstanceState(savedInstanceState);
-//        currentQuestionIndex = savedInstanceState.getInt("currentQuestionIndex");
-//        loadNewQuestion();
-//    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences preferences = getSharedPreferences("QuizPreferences", MODE_PRIVATE);
+        currentQuestionIndex = preferences.getInt("currentQuestionIndex", 0);
+        loadNewQuestion();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences preferences = getSharedPreferences("QuizPreferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("currentQuestionIndex", currentQuestionIndex);
+        editor.apply();
+    }
 
 
 }
