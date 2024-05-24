@@ -72,6 +72,22 @@
             android:focusableInTouchMode="true"
             android:textSize="25dp" />
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:focusableInTouchMode="true"
+            app:srcCompat="@drawable/girl_dog_run"/>
+
+
+        <TextView
+            android:id="@+id/kidnappings_start_lesson5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:textSize="25dp" />
+
 
         <Button
             android:id="@+id/page_turner2"

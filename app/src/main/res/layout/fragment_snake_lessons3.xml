@@ -19,7 +19,7 @@
 
         <TextView
             android:id="@+id/snakes_start_lesson1"
-            android:textSize="18dp"
+            android:textSize="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusableInTouchMode="true" />

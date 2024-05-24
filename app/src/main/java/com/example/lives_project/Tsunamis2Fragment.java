@@ -43,7 +43,7 @@ public class Tsunamis2Fragment extends Fragment {
             }
         });
 
-        for (int i = 4; i <= 5; i++) {
+        for (int i = 4; i <= 7; i++) {
             getLessonData(i, view);
         }
         return view;
@@ -65,6 +65,12 @@ public class Tsunamis2Fragment extends Fragment {
                                 break;
                             case 5:
                                 lessonTextView = view.findViewById(R.id.tsunamis_start_lesson2);
+                                break;
+                            case 6:
+                                lessonTextView = view.findViewById(R.id.tsunamis_start_lesson3);
+                                break;
+                            case 7:
+                                lessonTextView = view.findViewById(R.id.tsunamis_start_lesson4);
                                 break;
                         }
 

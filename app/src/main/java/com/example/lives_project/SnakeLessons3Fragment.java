@@ -42,7 +42,9 @@ public class SnakeLessons3Fragment extends Fragment {
             }
         });
 
-        getLessonData(8, view);
+        for (int i = 8; i <= 11; i++) {
+            getLessonData(i, view);
+        }
         return view;
     }
 
@@ -59,6 +61,15 @@ public class SnakeLessons3Fragment extends Fragment {
                         switch (lessonNumber) {
                             case 8:
                                 lessonTextView = view.findViewById(R.id.snakes_start_lesson1);
+                                break;
+                            case 9:
+                                lessonTextView = view.findViewById(R.id.snakes_start_lesson2);
+                                break;
+                            case 10:
+                                lessonTextView = view.findViewById(R.id.snakes_start_lesson3);
+                                break;
+                            case 11:
+                                lessonTextView = view.findViewById(R.id.snakes_start_lesson4);
                                 break;
                         }
 

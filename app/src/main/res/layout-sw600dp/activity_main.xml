@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_relative_layout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sky_blue"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:layout_width="458dp"
+        android:layout_height="333dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="722dp"
+        android:layout_marginEnd="573dp"
+        android:layout_marginBottom="662dp"
+        app:srcCompat="@drawable/main_background" />
+
+    <ImageView
+        android:layout_width="458dp"
+        android:layout_height="333dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="557dp"
+        android:layout_marginTop="721dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="657dp"
+        app:srcCompat="@drawable/main_background" />
+
+    <ImageView
+        android:layout_width="458dp"
+        android:layout_height="333dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="1093dp"
+        android:layout_marginEnd="566dp"
+        android:layout_marginBottom="287dp"
+        app:srcCompat="@drawable/main_background" />
+
+    <ImageView
+        android:layout_width="458dp"
+        android:layout_height="333dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="566dp"
+        android:layout_marginTop="1098dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginBottom="284dp"
+        app:srcCompat="@drawable/main_background" />
+
+    <ImageView
+        android:id="@+id/daily_tasks_bg"
+        android:layout_width="448dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="1079dp"
+        android:layout_marginEnd="580dp"
+        android:layout_marginBottom="296dp"
+        android:onClick="openQuizActivity"
+        app:srcCompat="@drawable/bg_search_view" />
+
+
+    <ImageView
+        android:id="@+id/recording_bg"
+        android:layout_width="448dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="555dp"
+        android:layout_marginTop="712dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="666dp"
+        android:onClick="openRecordingsActivity"
+        app:srcCompat="@drawable/bg_search_view" />
+
+    <ImageView
+        android:id="@+id/map_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="320dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="713dp"
+        android:layout_marginEnd="584dp"
+        android:layout_marginBottom="674dp"
+        android:onClick="openMapsDirectionsActivity"
+        app:srcCompat="@drawable/bg_search_view" />
+
+    <ImageView
+        android:id="@+id/about_lives_bg"
+        android:layout_width="448dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="558dp"
+        android:layout_marginTop="1082dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="296dp"
+        android:onClick="openNumbersActivity"
+        app:srcCompat="@drawable/bg_search_view" />
+
+    <FrameLayout
+        android:id="@+id/lessons_fragment1_container"
+        android:layout_width="match_parent"
+        android:layout_height="289dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="1418dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_arrow"
+            android:layout_width="319dp"
+            android:layout_height="185dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="1109dp"
+            android:layout_marginEnd="700dp"
+            android:layout_marginBottom="413dp"
+            android:elevation="5dp"
+            android:indeterminate="true"
+            android:visibility="invisible"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/arrow_animation" />
+    </FrameLayout>
+
+    <RelativeLayout
+
+        android:id="@+id/top_Relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="646dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="1061dp"
+        android:background="@color/blue">
+
+
+        <fragment
+            android:id="@+id/map_google"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="624dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="20dp"
+            tools:context=".MapsActivity" />
+
+        <Button
+            android:id="@+id/sign_out_button"
+            android:layout_width="353dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="739dp"
+            android:layout_marginTop="-11dp"
+            android:layout_marginEnd="-26dp"
+            android:layout_marginBottom="521dp"
+            android:backgroundTint="@color/blue"
+            android:fontFamily="@font/changa_one"
+            android:onClick="showSignOutDialog"
+            android:text="Sign Out"
+            android:textColor="@color/sky_blue"
+            android:textSize="35sp"
+            app:cornerRadius="10sp" />
+
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/safety_btn"
+        android:layout_width="209dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="149dp"
+        android:layout_marginTop="1202dp"
+        android:layout_marginEnd="709dp"
+        android:layout_marginBottom="322dp"
+        app:srcCompat="@drawable/safety1" />
+
+    <ImageView
+        android:id="@+id/map_image_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="157dp"
+        android:layout_marginTop="823dp"
+        android:layout_marginEnd="722dp"
+        android:layout_marginBottom="683dp"
+        android:onClick="openMapsDirectionsActivity"
+        app:srcCompat="@drawable/map1" />
+
+    <TextView
+        android:layout_width="316dp"
+        android:layout_height="166dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="190dp"
+        android:layout_marginTop="737dp"
+        android:layout_marginEnd="561dp"
+        android:layout_marginBottom="804dp"
+        android:fontFamily="@font/changa_one"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1"
+        android:text="Map"
+        android:textColor="@color/blue"
+        android:textSize="60dp" />
+
+    <TextView
+        android:layout_width="403dp"
+        android:layout_height="219dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="633dp"
+        android:layout_marginTop="736dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="752dp"
+        android:fontFamily="@font/changa_one"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1"
+        android:text="Daily tasks"
+        android:textColor="@color/blue"
+        android:textSize="60dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="173dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="1103dp"
+        android:layout_marginEnd="632dp"
+        android:layout_marginBottom="431dp"
+        android:fontFamily="@font/changa_one"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1"
+        android:text="About LiveS"
+        android:textColor="@color/blue"
+        android:textSize="60dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="219dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="609dp"
+        android:layout_marginTop="1099dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="389dp"
+        android:fontFamily="@font/changa_one"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1"
+        android:text="Recordings"
+        android:textColor="@color/blue"
+        android:textSize="60dp" />
+
+    <ImageView
+        android:id="@+id/daily_tasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="698dp"
+        android:layout_marginTop="828dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="696dp"
+        android:onClick="openQuizActivity"
+        app:srcCompat="@drawable/lamp" />
+
+    <ImageView
+        android:id="@+id/recordings_image"
+        android:layout_width="284dp"
+        android:layout_height="187dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="643dp"
+        android:layout_marginTop="1195dp"
+        android:layout_marginEnd="142dp"
+        android:layout_marginBottom="328dp"
+        android:onClick="openRecordingsActivity"
+        app:srcCompat="@drawable/microphone1" />
+
+
+</RelativeLayout>

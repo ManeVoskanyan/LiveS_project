@@ -11,25 +11,86 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class Fires4Fragment extends Fragment {
+
+    private DatabaseReference mDatabase;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fires4, container, false);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button page_turner2 = view.findViewById(R.id.page_turner2);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         page_turner2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onPageTurner2BtnClick();
             }
         });
-        return view;
+
+
+        for (int i = 12; i <= 15; i++) {
+            getLessonData(i, view);
+        }
+            return view;
+
     }
+
+    private void getLessonData(int lessonNumber, View view) {
+        mDatabase.child("FireLessons").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    DataSnapshot lessonSnapshot = dataSnapshot.child("FireLessons" + lessonNumber);
+                    if (lessonSnapshot.exists()) {
+                        String lessonText = lessonSnapshot.getValue(String.class);
+                        TextView lessonTextView = null;
+
+                        switch (lessonNumber) {
+                            case 12:
+                                lessonTextView = view.findViewById(R.id.fires_start_lesson1);
+                                break;
+                            case 13:
+                                lessonTextView = view.findViewById(R.id.fires_start_lesson2);
+                                break;
+                            case 14:
+                                lessonTextView = view.findViewById(R.id.fires_start_lesson3);
+                                break;
+                            case 15:
+                                lessonTextView = view.findViewById(R.id.fires_start_lesson4);
+                                break;
+                        }
+
+                        if (lessonTextView != null) {
+                            lessonTextView.setText(lessonText);
+                        }
+                    } else {
+
+                    }
+                } else {
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+
+
     public void onPageTurner2BtnClick() {
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

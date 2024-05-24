@@ -53,11 +53,11 @@ public class SnakeLessons2Fragment extends Fragment {
     }
 
     private void getLessonData(int lessonNumber, View view) {
-        mDatabase.child("BearLessons").addListenerForSingleValueEvent(new ValueEventListener() {
+        mDatabase.child("SnakeLessons").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    DataSnapshot lessonSnapshot = dataSnapshot.child("BearLessons" + lessonNumber);
+                    DataSnapshot lessonSnapshot = dataSnapshot.child("SnakeLessons" + lessonNumber);
                     if (lessonSnapshot.exists()) {
                         String lessonText = lessonSnapshot.getValue(String.class);
                         TextView lessonTextView = null;
