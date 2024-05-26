@@ -29,7 +29,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/man_dog_image"/>
+            app:srcCompat="@drawable/snake3"/>
 
         <TextView
             android:id="@+id/snakes_start_lesson2"
@@ -44,7 +44,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/man_dog_image"/>
+            app:srcCompat="@drawable/snake4"/>
 
         <TextView
             android:id="@+id/snakes_start_lesson3"
@@ -59,7 +59,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/man_dog_image"/>
+            app:srcCompat="@drawable/snake5"/>
 
         <TextView
             android:id="@+id/snakes_start_lesson4"

@@ -20,12 +20,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class Earthquakes3Fragment extends Fragment {
+
+    private DatabaseReference mDatabase;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_earthquakes3, container, false);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button page_turner1 = view.findViewById(R.id.page_turner1);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button page_turner2 = view.findViewById(R.id.page_turner2);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         page_turner2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,10 +41,13 @@ public class Earthquakes3Fragment extends Fragment {
                 onPageTurner1BtnClick();
             }
         });
+        for (int i = 8; i <= 11; i++) {
+            getLessonData(i, view);
+        }
         return view;
     }
 
-   /* private void getLessonData(int lessonNumber, View view) {
+    private void getLessonData(int lessonNumber, View view) {
         mDatabase.child("EarthquakeLessons").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -52,17 +58,17 @@ public class Earthquakes3Fragment extends Fragment {
                         TextView lessonTextView = null;
 
                         switch (lessonNumber) {
-                            case 4:
-                                lessonTextView = view.findViewById(R.id.snakes_start_lesson1);
+                            case 8:
+                                lessonTextView = view.findViewById(R.id.earthquakes_start_lesson1);
                                 break;
-                            case 5:
-                                lessonTextView = view.findViewById(R.id.snakes_start_lesson2);
+                            case 9:
+                                lessonTextView = view.findViewById(R.id.earthquakes_start_lesson2);
                                 break;
-                            case 6:
-                                lessonTextView = view.findViewById(R.id.snakes_start_lesson3);
+                            case 10:
+                                lessonTextView = view.findViewById(R.id.earthquakes_start_lesson3);
                                 break;
-                            case 7:
-                                lessonTextView = view.findViewById(R.id.snakes_start_lesson4);
+                            case 11:
+                                lessonTextView = view.findViewById(R.id.earthquakes_start_lesson4);
                                 break;
 
                         }
@@ -83,7 +89,7 @@ public class Earthquakes3Fragment extends Fragment {
 
             }
         });
-    } */
+    }
     public void onPageTurner1BtnClick() {
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

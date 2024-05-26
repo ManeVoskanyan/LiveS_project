@@ -31,7 +31,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/man_dog_image"/>
+            app:srcCompat="@drawable/kid3"/>
 
         <TextView
             android:id="@+id/kidnappings_start_lesson2"
@@ -46,7 +46,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/girl_dog_run"/>
+            app:srcCompat="@drawable/kid2"/>
 
 
         <TextView
@@ -62,7 +62,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/girl_dog_run"/>
+            app:srcCompat="@drawable/kid5"/>
 
 
         <TextView

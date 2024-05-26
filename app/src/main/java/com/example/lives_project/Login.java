@@ -125,8 +125,30 @@ public class Login extends AppCompatActivity {
         editor.putBoolean("isGuestMode", true);
         editor.apply();
 
-        Intent intent = new Intent(this, MainActivity.class);
-        GuestMode = true;
-        startActivity(intent);
+        // Вызываем метод для входа в режиме гостя
+        signInAsGuest();
     }
+
+    private void signInAsGuest() {
+        String guestEmail = "sictst4@gmail.com";
+        String guestPassword = "Samsung2023";
+
+        mAuth.signInWithEmailAndPassword(guestEmail, guestPassword)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Вход в режиме гостя выполнен успешно
+                            Intent intent = new Intent(Login.this, MainActivity.class);
+                            startActivity(intent);
+                            // Закрытие текущей активности
+                            finish();
+                        } else {
+                            // Ошибка входа в режиме гостя
+                            Toast.makeText(Login.this, "Error signing in as guest", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
 }

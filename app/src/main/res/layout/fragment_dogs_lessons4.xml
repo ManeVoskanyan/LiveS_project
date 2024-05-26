@@ -45,7 +45,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/man_dog_image"/>
+            app:srcCompat="@drawable/dogs11"/>
 
         <TextView
             android:id="@+id/dogs_start_lesson2"
@@ -62,7 +62,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/man_dog_image"/>
+            app:srcCompat="@drawable/dogs10"/>
 
         <TextView
             android:id="@+id/dogs_start_lesson3"
@@ -78,7 +78,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/man_dog_image"/>
+            app:srcCompat="@drawable/dogs8"/>
 
         <TextView
             android:id="@+id/dogs_start_lesson4"
@@ -103,21 +103,6 @@
             android:layout_marginStart="17dp"
             android:layout_marginTop="-50dp"/>
 
-        <Button
-            android:id="@+id/end_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="300dp"
-            android:layout_marginTop="-50dp"
-            android:backgroundTint="@color/blue" />
-
-        <ImageView
-            android:id="@+id/check_image"
-            android:layout_width="40dp"
-            android:layout_height="50dp"
-            android:src="@drawable/check"
-            android:layout_marginStart="320dp"
-            android:layout_marginTop="-50dp"/>
 
 
         <TextView

@@ -226,10 +226,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     void finishQuiz() {
-        String passStatus = (score > totalQuestion * 0.60) ? "Great!" : "Try once more";
+        String passStatus = "Great! You finished the quiz";
         new AlertDialog.Builder(this)
                 .setTitle(passStatus)
-                .setMessage("Score is " + score + " out of " + totalQuestion)
+                .setMessage("Click here to try once more")
                 .setPositiveButton("Restart", (dialogInterface, i) -> restartQuiz())
                 .show();
     }

@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -42,6 +44,12 @@ public class RecordingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recordings);
+
+        BottomMenuFragment bottomMenuFragment = new BottomMenuFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.add(R.id.lessons_fragment1_container, bottomMenuFragment);
+        transaction.commit();
 
         recordingsListView = findViewById(R.id.recordingsListView);
         recording_lottie = findViewById(R.id.lottie_recording);
@@ -131,5 +139,10 @@ public class RecordingsActivity extends AppCompatActivity {
             mediaPlayer.release();
             mediaPlayer = null;
         }
+    }
+
+    @SuppressLint("MissingSuperCall")
+    public void onBackPressed() {
+
     }
 }

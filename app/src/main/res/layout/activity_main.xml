@@ -36,18 +36,6 @@
         android:layout_marginBottom="322dp"
         app:srcCompat="@drawable/main_background" />
 
-    <ImageView
-        android:layout_width="186dp"
-        android:layout_height="59dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="219dp"
-        android:layout_marginTop="466dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="206dp"
-        app:srcCompat="@drawable/main_background" />
 
     <ImageView
         android:layout_width="186dp"
@@ -62,20 +50,6 @@
         android:layout_marginBottom="205dp"
         app:srcCompat="@drawable/main_background" />
 
-    <ImageView
-        android:id="@+id/recording_bg"
-        android:layout_width="186dp"
-        android:layout_height="59dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="215dp"
-        android:layout_marginTop="461dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="211dp"
-        android:onClick="openRecordingsActivity"
-        app:srcCompat="@drawable/bg_search_view" />
 
     <ImageView
         android:id="@+id/map_bg"
@@ -256,26 +230,6 @@
         android:textColor="@color/blue"
         android:textSize="30dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/lessons_fragment1_container"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="231dp"
-        android:layout_marginTop="462dp"
-        android:layout_marginEnd="-2dp"
-        android:layout_marginBottom="111dp"
-        android:fontFamily="@font/changa_one"
-        android:shadowColor="@color/black"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="1"
-        android:text="Recordings"
-        android:textColor="@color/blue"
-        android:textSize="30dp" />
-
     <ImageView
         android:id="@+id/daily_tasks"
         android:layout_width="77dp"
@@ -305,20 +259,6 @@
         android:layout_marginBottom="52dp"
         app:srcCompat="@drawable/safety1" />
 
-    <ImageView
-        android:id="@+id/recordings_image"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_above="@+id/lessons_fragment1_container"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="278dp"
-        android:layout_marginTop="500dp"
-        android:layout_marginEnd="63dp"
-        android:layout_marginBottom="50dp"
-        android:onClick="openRecordingsActivity"
-        app:srcCompat="@drawable/microphone1" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_arrow"

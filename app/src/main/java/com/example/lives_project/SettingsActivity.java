@@ -1,34 +1,31 @@
 package com.example.lives_project;
-import android.content.Intent;
+
+import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.pm.ShortcutInfo;
-import android.content.pm.ShortcutManager;
-import android.graphics.drawable.Icon;
-import android.os.Build;
+import android.media.AudioManager;
 import android.os.Bundle;
-import android.widget.CompoundButton;
+import android.view.KeyEvent;
 import android.widget.Switch;
-import androidx.annotation.RequiresApi;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.lives_project.MainActivity;
-import com.example.lives_project.R;
-
-import java.util.Collections;
-
 public class SettingsActivity extends AppCompatActivity {
 
-    private Switch buttonVisibilitySwitch;
-    private static final String PREFS_NAME = "settings_prefs";
-    private static final String BUTTON_VISIBLE_KEY = "button_visible";
+    private AudioManager audioManager;
+    private long lastVolumeUpPressTime = 0;
+    private long lastVolumeDownPressTime = 0;
+    private static final long DOUBLE_PRESS_INTERVAL = 300;
+    private Switch volumeButtonSwitch;
+    private SharedPreferences sharedPreferences;
+    private static final String PREFS_NAME = "com.example.lives_project.PREFS";
+    private static final String PREF_SWITCH_STATE = "switch_state";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
-
 
         BottomMenuFragment bottomMenuFragment = new BottomMenuFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -36,56 +33,40 @@ public class SettingsActivity extends AppCompatActivity {
         transaction.add(R.id.lessons_fragment1_container, bottomMenuFragment);
         transaction.commit();
 
+        audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
 
-        buttonVisibilitySwitch = findViewById(R.id.button_visibility_switch);
+        sharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        boolean switchState = sharedPreferences.getBoolean(PREF_SWITCH_STATE, false);
 
-        final SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        boolean isButtonVisible = preferences.getBoolean(BUTTON_VISIBLE_KEY, false);
-        buttonVisibilitySwitch.setChecked(isButtonVisible);
+        volumeButtonSwitch = findViewById(R.id.switch_button);
+        volumeButtonSwitch.setChecked(switchState);
 
-        buttonVisibilitySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putBoolean(BUTTON_VISIBLE_KEY, isChecked);
-                editor.apply();
-
-                if (isChecked) {
-                    createShortcut();
-                } else {
-                    removeShortcut();
-                }
-            }
+        volumeButtonSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean(PREF_SWITCH_STATE, isChecked);
+            editor.apply();
         });
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N_MR1)
-    private void createShortcut() {
-        ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
-
-        if (shortcutManager != null && shortcutManager.isRequestPinShortcutSupported()) {
-            Intent shortcutIntent = new Intent(this, ButtonActionReceiver.class);
-            shortcutIntent.setAction("com.example.lives_project.BUTTON_ACTION");
-
-            ShortcutInfo shortcut = new ShortcutInfo.Builder(this, "id_button_action")
-                    .setShortLabel("Button Action")
-                    .setLongLabel("Perform Button Action")
-                    .setIcon(Icon.createWithResource(this, R.drawable.ic_shortcut_icon))
-                    .setIntent(shortcutIntent)
-                    .build();
-
-            shortcutManager.requestPinShortcut(shortcut, null);
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_VOLUME_UP || keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+            long currentTime = System.currentTimeMillis();
+            if (keyCode == KeyEvent.KEYCODE_VOLUME_UP && currentTime - lastVolumeUpPressTime <= DOUBLE_PRESS_INTERVAL) {
+                performXButtonAction();
+            } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN && currentTime - lastVolumeDownPressTime <= DOUBLE_PRESS_INTERVAL) {
+                performXButtonAction();
+            }
+            lastVolumeUpPressTime = currentTime;
+            lastVolumeDownPressTime = currentTime;
+            return true;
         }
+        return super.onKeyDown(keyCode, event);
     }
 
-
-
-    @RequiresApi(api = Build.VERSION_CODES.N_MR1)
-    private void removeShortcut() {
-        ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
-
-        if (shortcutManager != null) {
-            shortcutManager.removeDynamicShortcuts(Collections.singletonList("id_button_action"));
+    private void performXButtonAction() {
+        if (volumeButtonSwitch.isChecked()) {
+            Toast.makeText(this, "Вы нажали X-button!", Toast.LENGTH_SHORT).show();
         }
     }
 }

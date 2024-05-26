@@ -44,7 +44,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/boy"/>
+            app:srcCompat="@drawable/dogs6"/>
 
 
         <TextView
@@ -61,7 +61,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/girl_telephone"/>
+            app:srcCompat="@drawable/dogs9"/>
 
         <TextView
             android:id="@+id/dogs_start_lesson3"

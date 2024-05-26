@@ -46,7 +46,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/man_dog_image"/>
+            app:srcCompat="@drawable/dogo"/>
 
         <TextView
             android:id="@+id/dogs_start_lesson2"

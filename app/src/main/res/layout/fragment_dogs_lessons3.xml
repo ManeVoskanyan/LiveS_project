@@ -44,7 +44,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/dogs"/>
+            app:srcCompat="@drawable/dogs3"/>
 
 
         <TextView
@@ -62,7 +62,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/man_dog_image"/>
+            app:srcCompat="@drawable/dogs4"/>
 
         <TextView
             android:id="@+id/dogs_start_lesson3"
@@ -78,7 +78,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/man_dog_image"/>
+            app:srcCompat="@drawable/dogs5"/>
 
         <TextView
             android:id="@+id/dogs_start_lesson4"
@@ -94,7 +94,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/man_dog_image"/>
+            app:srcCompat="@drawable/girl_telephone"/>
 
         <TextView
             android:id="@+id/dogs_start_lesson5"

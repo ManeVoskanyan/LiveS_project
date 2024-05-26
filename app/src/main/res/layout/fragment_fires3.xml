@@ -30,7 +30,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/man_dog_image"/>
+            app:srcCompat="@drawable/fires7"/>
 
         <TextView
             android:id="@+id/fires_start_lesson2"
@@ -45,7 +45,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/man_dog_image"/>
+            app:srcCompat="@drawable/fires8"/>
 
         <TextView
             android:id="@+id/fires_start_lesson3"
@@ -60,7 +60,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/man_dog_image"/>
+            app:srcCompat="@drawable/fires10"/>
 
         <TextView
             android:id="@+id/fires_start_lesson4"

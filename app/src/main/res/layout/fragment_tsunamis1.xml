@@ -46,7 +46,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/tsunami1"/>
+            app:srcCompat="@drawable/tsu1"/>
 
 
         <TextView
@@ -63,7 +63,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:focusableInTouchMode="true"
-            app:srcCompat="@drawable/girl_dog_run"/>
+            app:srcCompat="@drawable/tsu22"/>
 
 
         <TextView
