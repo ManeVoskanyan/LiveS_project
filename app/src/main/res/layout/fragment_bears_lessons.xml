@@ -8,17 +8,17 @@
 
     <TextView
         android:id="@+id/bears_start_textview"
-        android:layout_width="246dp"
-        android:layout_height="83dp"
+        android:layout_width="356dp"
+        android:layout_height="275dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="129dp"
-        android:layout_marginTop="189dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="459dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="210dp"
+        android:layout_marginEnd="464dp"
+        android:layout_marginBottom="1225dp"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
         android:shadowDx="3"
@@ -26,16 +26,15 @@
         android:shadowRadius="2"
         android:text="Bears"
         android:textColor="@color/blue"
-        android:textSize="60dp" />
+        android:textSize="90dp" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_bear"
-        android:layout_width="200dp"
-        android:layout_height="300dp"
+        android:layout_width="543dp"
+        android:layout_height="627dp"
         android:layout_centerInParent="true"
         android:elevation="5dp"
         app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/bear_animation"
-       />
+        app:lottie_rawRes="@raw/bear_animation" />
 
 </RelativeLayout>

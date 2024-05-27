@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/dogs_start_textview"
-        android:layout_width="246dp"
-        android:layout_height="83dp"
+        android:layout_width="537dp"
+        android:layout_height="290dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -18,8 +18,8 @@
         android:layout_centerInParent="true"
         android:layout_marginStart="129dp"
         android:layout_marginTop="189dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="459dp"
+        android:layout_marginEnd="401dp"
+        android:layout_marginBottom="1228dp"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
         android:shadowDx="3"
@@ -27,12 +27,12 @@
         android:shadowRadius="2"
         android:text="Dogs"
         android:textColor="@color/blue"
-        android:textSize="60dp" />
+        android:textSize="90dp" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_dog"
-        android:layout_width="200dp"
-        android:layout_height="300dp"
+        android:layout_width="466dp"
+        android:layout_height="533dp"
         android:layout_centerInParent="true"
         android:elevation="5dp"
         app:lottie_autoPlay="true"

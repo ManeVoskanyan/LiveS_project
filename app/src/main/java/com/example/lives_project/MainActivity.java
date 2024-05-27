@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     .commit();
         }
 
-      //  handleShortcutIntent(getIntent());
+
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String phoneNumber1 = sharedPreferences.getString("phoneNumber1", "");

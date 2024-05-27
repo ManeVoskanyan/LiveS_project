@@ -16,10 +16,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="719dp"
-        android:layout_marginEnd="576dp"
-        android:layout_marginBottom="665dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="692dp"
+        android:layout_marginEnd="574dp"
+        android:layout_marginBottom="704dp"
         app:srcCompat="@drawable/main_background" />
 
     <ImageView
@@ -29,12 +29,11 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="557dp"
-        android:layout_marginTop="721dp"
-        android:layout_marginEnd="54dp"
-        android:layout_marginBottom="657dp"
+        android:layout_marginStart="569dp"
+        android:layout_marginTop="679dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="706dp"
         app:srcCompat="@drawable/main_background" />
-
 
     <ImageView
         android:layout_width="458dp"
@@ -43,12 +42,11 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="305dp"
-        android:layout_marginTop="1108dp"
-        android:layout_marginEnd="313dp"
-        android:layout_marginBottom="273dp"
+        android:layout_marginStart="339dp"
+        android:layout_marginTop="1054dp"
+        android:layout_marginEnd="287dp"
+        android:layout_marginBottom="332dp"
         app:srcCompat="@drawable/main_background" />
-
 
     <ImageView
         android:id="@+id/daily_tasks_bg"
@@ -58,12 +56,13 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="301dp"
-        android:layout_marginTop="1094dp"
-        android:layout_marginEnd="324dp"
-        android:layout_marginBottom="286dp"
+        android:layout_marginStart="339dp"
+        android:layout_marginTop="1047dp"
+        android:layout_marginEnd="298dp"
+        android:layout_marginBottom="341dp"
         android:onClick="onSafeBtnClick"
         app:srcCompat="@drawable/bg_search_view" />
+
 
     <ImageView
         android:id="@+id/recording_bg"
@@ -73,10 +72,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="555dp"
-        android:layout_marginTop="712dp"
-        android:layout_marginEnd="65dp"
-        android:layout_marginBottom="666dp"
+        android:layout_marginStart="568dp"
+        android:layout_marginTop="663dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="715dp"
         android:onClick="openQuizActivity"
         app:srcCompat="@drawable/bg_search_view" />
 
@@ -88,14 +87,12 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="713dp"
-        android:layout_marginEnd="584dp"
-        android:layout_marginBottom="674dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="676dp"
+        android:layout_marginEnd="583dp"
+        android:layout_marginBottom="713dp"
         android:onClick="openMapsDirectionsActivity"
         app:srcCompat="@drawable/bg_search_view" />
-
-
 
     <FrameLayout
         android:id="@+id/lessons_fragment1_container"
@@ -106,7 +103,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="1418dp"
+        android:layout_marginTop="1310dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="0dp">
 
@@ -158,16 +155,16 @@
 
         <Button
             android:id="@+id/sign_out_button"
-            android:layout_width="353dp"
-            android:layout_height="wrap_content"
+            android:layout_width="365dp"
+            android:layout_height="159dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="739dp"
-            android:layout_marginTop="-11dp"
-            android:layout_marginEnd="-26dp"
-            android:layout_marginBottom="521dp"
+            android:layout_marginStart="730dp"
+            android:layout_marginTop="-14dp"
+            android:layout_marginEnd="-28dp"
+            android:layout_marginBottom="500dp"
             android:backgroundTint="@color/blue"
             android:fontFamily="@font/changa_one"
             android:onClick="showSignOutDialog"
@@ -182,30 +179,30 @@
 
     <ImageView
         android:id="@+id/safety_btn"
-        android:layout_width="209dp"
-        android:layout_height="wrap_content"
+        android:layout_width="247dp"
+        android:layout_height="222dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="431dp"
-        android:layout_marginTop="1214dp"
-        android:layout_marginEnd="429dp"
-        android:layout_marginBottom="310dp"
+        android:layout_marginStart="441dp"
+        android:layout_marginTop="1124dp"
+        android:layout_marginEnd="380dp"
+        android:layout_marginBottom="362dp"
         app:srcCompat="@drawable/safety1" />
 
     <ImageView
         android:id="@+id/map_image_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="237dp"
+        android:layout_height="231dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="157dp"
-        android:layout_marginTop="823dp"
-        android:layout_marginEnd="722dp"
-        android:layout_marginBottom="683dp"
+        android:layout_marginStart="133dp"
+        android:layout_marginTop="748dp"
+        android:layout_marginEnd="702dp"
+        android:layout_marginBottom="730dp"
         android:onClick="openMapsDirectionsActivity"
         app:srcCompat="@drawable/map1" />
 
@@ -216,10 +213,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="190dp"
-        android:layout_marginTop="737dp"
-        android:layout_marginEnd="561dp"
-        android:layout_marginBottom="804dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="670dp"
+        android:layout_marginEnd="565dp"
+        android:layout_marginBottom="876dp"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
         android:shadowDx="2"
@@ -229,7 +226,6 @@
         android:textColor="@color/blue"
         android:textSize="60dp" />
 
-
     <TextView
         android:layout_width="403dp"
         android:layout_height="219dp"
@@ -237,10 +233,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="700dp"
-        android:layout_marginTop="730dp"
-        android:layout_marginEnd="-33dp"
-        android:layout_marginBottom="758dp"
+        android:layout_marginStart="718dp"
+        android:layout_marginTop="670dp"
+        android:layout_marginEnd="-46dp"
+        android:layout_marginBottom="821dp"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
         android:shadowDx="2"
@@ -256,9 +252,11 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="363dp"
-        android:layout_marginTop="1106dp"
-        android:layout_marginEnd="347dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="398dp"
+        android:layout_marginTop="1053dp"
+        android:layout_marginEnd="318dp"
+        android:layout_marginBottom="485dp"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
         android:shadowDx="2"
@@ -270,20 +268,18 @@
 
     <ImageView
         android:id="@+id/daily_tasks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="262dp"
+        android:layout_height="232dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="698dp"
-        android:layout_marginTop="828dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="696dp"
+        android:layout_marginStart="674dp"
+        android:layout_marginTop="744dp"
+        android:layout_marginEnd="132dp"
+        android:layout_marginBottom="734dp"
         android:onClick="openQuizActivity"
         app:srcCompat="@drawable/lamp" />
-
-
 
 
 </RelativeLayout>
