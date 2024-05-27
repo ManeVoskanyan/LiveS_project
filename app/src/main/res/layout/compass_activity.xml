@@ -26,7 +26,7 @@
         android:shadowRadius="1"
         android:text="Degree:"
         android:textColor="@color/blue"
-        android:textSize="30dp"
+        android:textSize="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,31 +35,29 @@
 
     <ImageView
         android:id="@+id/image_compass"
-        android:layout_width="match_parent"
+        android:layout_width="1057dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="21dp"
+        android:layout_marginBottom="-5dp"
         app:srcCompat="@drawable/compass_imaage_main" />
-
-
 
     <FrameLayout
         android:id="@+id/lessons_fragment1_container"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="394dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="591dp"
+        android:layout_marginTop="1312dp"
         android:layout_marginBottom="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="-15dp"/>
+        tools:layout_editor_absoluteX="-15dp" />
 
 
 </RelativeLayout>

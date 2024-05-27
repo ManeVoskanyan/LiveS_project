@@ -32,7 +32,7 @@ public class DogsLessons4Fragment extends Fragment {
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_dogs_lessons4, container, false);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button page_turner2 = view.findViewById(R.id.page_turner2);
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button end_button = view.findViewById(R.id.end_button);
+       // @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button end_button = view.findViewById(R.id.end_button);
 //        end_button.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

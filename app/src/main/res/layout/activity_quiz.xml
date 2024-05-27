@@ -9,32 +9,39 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_loading"
-        android:layout_width="225dp"
-        android:layout_height="262dp"
+        android:layout_width="300sp"
+        android:layout_height="300sp"
         android:layout_centerInParent="true"
         android:elevation="5dp"
         app:lottie_autoPlay="true"
         app:lottie_rawRes="@raw/loading_animation" />
 
-    <ImageView
-        android:layout_width="308dp"
-        android:layout_height="192dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="60sp"
-        android:layout_marginEnd="47dp"
-        app:srcCompat="@drawable/quiz_bacground" />
 
+    <ImageView
+        android:layout_width="439dp"
+        android:layout_height="295dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="313dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginEnd="323dp"
+        android:layout_marginBottom="1246dp"
+        app:srcCompat="@drawable/quiz_bacground" />
 
     <TextView
         android:id="@+id/total_questions"
-        android:layout_width="181dp"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="375dp"
         android:layout_above="@+id/linear_layout"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="115dp"
-        android:layout_marginEnd="115dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginBottom="-35dp"
         android:fontFamily="@font/changa_one"
         android:gravity="center"
         android:shadowColor="@color/black"
@@ -47,8 +54,8 @@
 
     <LinearLayout
         android:id="@+id/linear_layout"
-        android:layout_width="403dp"
-        android:layout_height="wrap_content"
+        android:layout_width="817dp"
+        android:layout_height="927dp"
         android:layout_centerInParent="true"
         android:layout_marginHorizontal="20sp"
         android:background="@drawable/rounded_background"
@@ -57,10 +64,10 @@
 
         <TextView
             android:id="@+id/question"
-            android:layout_width="320dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="213dp"
             android:layout_above="@+id/linear_layout"
-            android:layout_marginLeft="30sp"
+            android:layout_marginStart="20sp"
             android:layout_marginTop="30sp"
             android:layout_marginBottom="50sp"
             android:fontFamily="@font/changa_one"
@@ -70,7 +77,7 @@
             android:shadowRadius="1"
             android:text="This will be the question"
             android:textColor="@color/white"
-            android:textSize="30dp" />
+            android:textSize="50dp" />
 
         <LinearLayout
             android:id="@+id/questions"
@@ -81,19 +88,21 @@
 
             <Button
                 android:id="@+id/ansA"
-                android:layout_width="320sp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="80sp"
                 android:layout_marginHorizontal="20sp"
                 android:backgroundTint="@color/blue"
                 android:gravity="center"
                 android:text="ansA"
+                android:textSize="25sp"
                 app:cornerRadius="15sp" />
 
 
             <Button
                 android:id="@+id/ansB"
-                android:layout_width="320sp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="80sp"
+                android:textSize="25sp"
                 android:layout_marginHorizontal="20sp"
                 android:backgroundTint="@color/blue"
                 android:gravity="center"
@@ -103,8 +112,9 @@
 
             <Button
                 android:id="@+id/ansC"
-                android:layout_width="320sp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="80sp"
+                android:textSize="25sp"
                 android:layout_marginHorizontal="20sp"
                 android:backgroundTint="@color/blue"
                 android:gravity="center"
@@ -113,8 +123,9 @@
 
             <Button
                 android:id="@+id/ansD"
-                android:layout_width="320sp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="80sp"
+                android:textSize="25sp"
                 android:layout_marginHorizontal="20sp"
                 android:backgroundTint="@color/blue"
                 android:gravity="center"
@@ -128,45 +139,45 @@
 
     <Button
         android:id="@+id/submit_btn"
-        android:layout_width="226dp"
-        android:layout_height="59dp"
+        android:layout_width="364dp"
+        android:layout_height="104dp"
         android:layout_below="@+id/linear_layout"
         android:layout_alignBottom="@+id/linear_layout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="-26dp"
-        android:layout_marginBottom="-33dp"
+        android:layout_marginTop="-45dp"
+        android:layout_marginBottom="-60dp"
         android:backgroundTint="@color/blue"
         android:text="Submit"
-        android:textSize="20dp"
+        android:textSize="40sp"
         app:cornerRadius="15sp" />
 
     <Button
         android:id="@+id/prev_question_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="55dp"
+        android:layout_width="213dp"
+        android:layout_height="98dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="670dp"
-        android:layout_marginEnd="290dp"
-        android:layout_marginBottom="6dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="1427dp"
+        android:layout_marginEnd="848dp"
+        android:layout_marginBottom="185dp"
         android:backgroundTint="@color/blue"
         app:cornerRadius="15sp" />
 
     <ImageView
         android:id="@+id/arrow_image"
-        android:layout_width="wrap_content"
-        android:layout_height="46dp"
+        android:layout_width="126dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="674dp"
-        android:layout_marginEnd="311dp"
-        android:layout_marginBottom="11dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="1436dp"
+        android:layout_marginEnd="900dp"
+        android:layout_marginBottom="186dp"
         android:src="@drawable/left" />
 
 

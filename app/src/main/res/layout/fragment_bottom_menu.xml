@@ -43,7 +43,7 @@
     <LinearLayout
         android:id="@+id/bottom_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="55sp"
+        android:layout_height="100sp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="-2dp"
         android:background="@color/blue"
@@ -51,49 +51,50 @@
 
         <ImageView
             android:id="@+id/home_image"
-            android:layout_width="80sp"
-            android:layout_height="45sp"
+            android:layout_width="150sp"
+            android:layout_height="90sp"
             android:layout_marginTop="5dp"
+            android:layout_marginStart="20sp"
             android:layout_marginBottom="5dp"
             app:srcCompat="@drawable/home" />
 
         <ImageView
             android:id="@+id/lessons_image"
-            android:layout_width="80sp"
-            android:layout_height="45sp"
-            android:layout_marginStart="-10dp"
+            android:layout_width="150sp"
+            android:layout_height="90sp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:clickable="true"
             android:onClick="onLessonsClick"
             app:srcCompat="@drawable/lessons"
+            android:layout_marginStart="90sp"
             tools:ignore="TouchTargetSizeCheck" />
 
 
         <ImageView
             android:id="@+id/compass_image"
-            android:layout_width="80sp"
-            android:layout_height="45sp"
+            android:layout_width="150sp"
+            android:layout_height="90sp"
+            android:layout_marginStart="240dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:layout_marginStart="90dp"
             app:srcCompat="@drawable/compass1" />
 
         <ImageView
             android:id="@+id/settings_image"
-            android:layout_width="90sp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="-10dp"
+            android:layout_width="150sp"
+            android:layout_height="90sp"
+            android:layout_marginStart="60dp"
             android:layout_marginBottom="10dp"
-            app:srcCompat="@drawable/rec_icon" />
+            app:srcCompat="@drawable/rec_icon_1" />
 
 
     </LinearLayout>
 
     <Button
         android:id="@+id/main_btn1"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="180dp"
+        android:layout_height="190dp"
         android:layout_above="@+id/bottom_linear_layout"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="-60dp"
@@ -101,8 +102,8 @@
 
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:layout_above="@+id/bottom_linear_layout"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="-46dp"
@@ -110,8 +111,8 @@
 
     <ImageView
         android:id="@+id/warning_image"
-        android:layout_width="100dp"
-        android:layout_height="80dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="-27dp"
         android:layout_above="@+id/bottom_linear_layout"

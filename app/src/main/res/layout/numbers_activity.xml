@@ -9,8 +9,8 @@
 
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="395dp"
+        android:layout_height="124dp"
         android:layout_alignParentEnd="true"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
@@ -19,12 +19,14 @@
         android:shadowRadius="1"
         android:text="LiveS"
         android:textColor="@color/blue"
-        android:textSize="60dp"
+        android:textSize="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.632"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.027" />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,100 +39,102 @@
         android:shadowRadius="1"
         android:text="Live Safely"
         android:textColor="@color/blue_light"
-        android:textSize="40dp"
+        android:textSize="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.534"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.114" />
-
+        app:layout_constraintVertical_bias="0.112" />
 
     <TextView
-        android:layout_width="362dp"
-        android:layout_height="173dp"
+        android:layout_width="931dp"
+        android:layout_height="321dp"
         android:layout_alignParentEnd="true"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
-        android:text="Welcome to LiveS - your personal safety companion! With our app, you can send your location and an alert message to pre-selected contacts at the touch of a button."
+        android:text="Welcome to LiveS - your personal safety companion!This app will provide you with useful lessons, tasks, a map with geolocation and direction between two places, a compass and an alert button With our app, you can send your location and a help message to pre-selected contacts with a touch of the button."
         android:textColor="@color/blue"
-        android:textSize="25dp"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.673"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.236" />
 
     <TextView
-        android:layout_width="356dp"
-        android:layout_height="93dp"
+        android:layout_width="922dp"
+        android:layout_height="228dp"
         android:layout_alignParentEnd="true"
         android:fontFamily="@font/changa_one"
         android:shadowColor="@color/black"
         android:text="To get started, please enter the numbers of those who will receive your alert message."
-        android:textSize="25dp"
         android:textColor="@color/blue"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.852" />
+        app:layout_constraintVertical_bias="0.793" />
 
     <EditText
         android:id="@+id/inputNumber"
-        android:layout_width="180dp"
-        android:layout_height="57dp"
+        android:layout_width="671dp"
+        android:layout_height="113dp"
         android:ems="10"
         android:hint="Enter the number"
         android:inputType="phone"
         android:textColor="@color/blue"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.171"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.681" />
+        app:layout_constraintVertical_bias="0.625" />
 
     <EditText
         android:id="@+id/inputNumber2"
-        android:layout_width="180dp"
-        android:layout_height="57dp"
+        android:layout_width="663dp"
+        android:layout_height="110dp"
         android:ems="10"
         android:hint="Enter the number"
-        android:textColor="@color/blue"
         android:inputType="phone"
+        android:textColor="@color/blue"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.168"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.577" />
+        app:layout_constraintVertical_bias="0.523" />
 
     <EditText
         android:id="@+id/inputNumber3"
-        android:layout_width="180dp"
-        android:layout_height="57dp"
+        android:layout_width="666dp"
+        android:layout_height="103dp"
         android:ems="10"
         android:hint="Enter the number"
         android:inputType="phone"
         android:textColor="@color/blue"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.177"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.465" />
+        app:layout_constraintVertical_bias="0.423" />
 
     <Button
         android:id="@+id/button_ok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="319dp"
+        android:layout_height="102dp"
         android:backgroundTint="@color/blue_light"
         android:onClick="onSend"
         android:text="OK"
-        android:textSize="20dp"
+        android:textSize="40dp"
+        app:cornerRadius="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
