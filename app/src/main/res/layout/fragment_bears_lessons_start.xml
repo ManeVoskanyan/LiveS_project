@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/sky_blue"
-    android:layout_marginBottom="130dp"
+    android:layout_marginBottom="330dp"
     tools:context=".DogsLessonsStartFragment">
 
     <com.airbnb.lottie.LottieAnimationView
@@ -30,6 +30,19 @@
         android:layout_marginTop="10dp"
         android:background="@color/sky_blue">
 
+
+        <TextView
+            android:layout_width="487dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="380dp"
+            android:fontFamily="@font/changa_one"
+            android:shadowColor="@color/black"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="2"
+            android:text="Bears"
+            android:textColor="@color/blue"
+            android:textSize="90dp" />
 
         <TextView
             android:id="@+id/bears_start_lesson1"
@@ -75,19 +88,19 @@
 
         <Button
             android:id="@+id/page_turner1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
             android:backgroundTint="@color/blue"
             android:layout_marginTop="15dp"
-            android:layout_marginStart="300dp"/>
+            android:layout_marginStart="900dp"/>
 
         <ImageView
             android:id="@+id/right_image"
-            android:layout_width="40dp"
-            android:layout_height="50dp"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
             android:src="@drawable/right"
-            android:layout_marginStart="317dp"
-            android:layout_marginTop="-50dp"/>
+            android:layout_marginStart="927dp"
+            android:layout_marginTop="-70dp"/>
 
         <TextView
             android:id="@+id/dogs_start_lesson5"

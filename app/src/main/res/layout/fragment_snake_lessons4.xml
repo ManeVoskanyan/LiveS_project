@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/sky_blue"
-    android:layout_marginBottom="130dp"
+    android:layout_marginBottom="330dp"
     tools:context=".DogsLessonsStartFragment">
 
     <LinearLayout
@@ -72,19 +72,18 @@
 
         <Button
             android:id="@+id/page_turner2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
             android:layout_marginEnd="300dp"
             android:backgroundTint="@color/blue" />
 
         <ImageView
             android:id="@+id/left_image"
-            android:layout_width="40dp"
-            android:layout_height="50dp"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
             android:src="@drawable/left"
             android:layout_marginStart="17dp"
-            android:layout_marginTop="-50dp"/>
+            android:layout_marginTop="-70dp"/>
 
 
 
